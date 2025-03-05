@@ -1,0 +1,263 @@
+.service_card .icon::after {
+  content: "";
+  position: absolute;
+  inset: 4.5px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(2px);
+  transition:
+    background-color 0.25s,
+    border-color 0.25s;
+}
+
+.service_card .shine:before {
+  content: "";
+  width: 150%;
+  padding-bottom: 150%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 55%;
+  filter: blur(35px);
+  opacity: 0.1;
+  transform: translateX(-50%);
+  background-image: conic-gradient(
+    from 205deg at 50% 50%,
+    var(--primary) 0deg,
+    var(--primary) 25deg,
+    color-mix(in oklch, var(--primary) 18%, transparent) 295deg,
+    var(--primary) 360deg
+  );
+}
+
+.service_card .background {
+  -webkit-mask-image: radial-gradient(
+    circle at 60% 5%,
+    black 0%,
+    black 15%,
+    transparent 60%
+  );
+  mask-image: radial-gradient(
+    circle at 60% 5%,
+    black 0%,
+    black 15%,
+    transparent 60%
+  );
+}
+
+.service_card .background .tile {
+  position: absolute;
+  background-color: color-mix(in oklch, var(--primary) 5%, transparent);
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.service_card .background .tile.tile-4,
+.service_card .background .tile.tile-6,
+.service_card .background .tile.tile-10 {
+  animation-delay: -2s;
+}
+
+.service_card .background .tile.tile-3,
+.service_card .background .tile.tile-5,
+.service_card .background .tile.tile-8 {
+  animation-delay: -4s;
+}
+
+.service_card .background .tile.tile-2,
+.service_card .background .tile.tile-9 {
+  animation-delay: -6s;
+}
+
+.service_card .background .tile.tile-1 {
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 22.5%;
+}
+
+.service_card .background .tile.tile-2 {
+  top: 0;
+  left: 22.5%;
+  height: 10%;
+  width: 27.5%;
+}
+
+.service_card .background .tile.tile-3 {
+  top: 0;
+  left: 50%;
+  height: 10%;
+  width: 27.5%;
+}
+
+.service_card .background .tile.tile-4 {
+  top: 0;
+  left: 77.5%;
+  height: 10%;
+  width: 22.5%;
+}
+
+.service_card .background .tile.tile-5 {
+  top: 10%;
+  left: 0;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+.service_card .background .tile.tile-6 {
+  top: 10%;
+  left: 22.5%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+.service_card .background .tile.tile-7 {
+  top: 10%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+.service_card .background .tile.tile-8 {
+  top: 10%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+.service_card .background .tile.tile-9 {
+  top: 32.5%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+.service_card .background .tile.tile-10 {
+  top: 32.5%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+@keyframes tile {
+  0%,
+  12.5%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  82.5% {
+    opacity: 0;
+  }
+}
+
+.service_card .background .line {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.service_card .background .line:before,
+.service_card .background .line:after {
+  content: "";
+  position: absolute;
+  background-color: var(--border);
+  transition: transform 0.35s;
+}
+
+.service_card .background .line:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.service_card .background .line:after {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+}
+
+.service_card .background .line.line-1:before {
+  top: 10%;
+}
+
+.service_card .background .line.line-1:after {
+  left: 22.5%;
+}
+
+.service_card .background .line.line-1:before,
+.service_card .background .line.line-1:after {
+  transition-delay: 0.3s;
+}
+
+.service_card .background .line.line-2:before {
+  top: 32.5%;
+}
+
+.service_card .background .line.line-2:after {
+  left: 50%;
+}
+
+.service_card .background .line.line-2:before,
+.service_card .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+
+.service_card .background .line.line-3:before {
+  top: 55%;
+}
+
+.service_card .background .line.line-3:after {
+  right: 22.5%;
+}
+
+.service_card:hover .shine {
+  opacity: 1;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+
+.service_card:hover .background .tiles {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+.service_card:hover .background .tile {
+  animation-name: tile;
+}
+
+.service_card:hover .background .line {
+  opacity: 1;
+  transition-duration: 0.15s;
+}
+
+.service_card:hover .background .line:before {
+  transform: scaleX(1);
+}
+
+.service_card:hover .background .line:after {
+  transform: scaleY(1);
+}
+
+.service_card:hover .background .line.line-1:before,
+.service_card:hover .background .line.line-1:after {
+  transition-delay: 0s;
+}
+
+.service_card:hover .background .line.line-2:before,
+.service_card:hover .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+
+.service_card:hover .background .line.line-3:before,
+.service_card:hover .background .line.line-3:after {
+  transition-delay: 0.3s;
+}

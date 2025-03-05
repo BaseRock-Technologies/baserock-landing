@@ -1,9 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -13,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import type { Project } from "@/lib/types";
 import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
+import ProjectCard from "./project-card";
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -40,43 +38,29 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
         <CarouselContent>
           {Array.from({ length: totalSlides }).map((_, slideIndex) => (
             <CarouselItem key={slideIndex}>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8 lg:gap-14">
                 {projects
                   .slice(slideIndex * 3, slideIndex * 3 + 3)
                   .map((project, index) => (
-                    <Card key={index} className="overflow-hidden">
-                      <div className="relative aspect-video">
-                        <Image
-                          src={
-                            project.image ? project.image : ProjectPlaceholder
-                          }
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
-                        />
-                      </div>
-                      <CardContent className="p-4">
-                        <h3 className="mb-2 text-lg font-semibold">
-                          {project.title}
-                        </h3>
-                        <p className="text-muted-foreground mb-4 text-sm">
-                          {project.description}
-                        </p>
-                        <Button variant="outline" size="sm">
-                          Learn More
-                        </Button>
-                      </CardContent>
-                    </Card>
+                    <ProjectCard
+                      key={index}
+                      imageUrl={
+                        project.image ? project.image : ProjectPlaceholder
+                      }
+                      title={project.title}
+                      description={project.description}
+                      link={project.link ? project.link : "/"}
+                      technologies={project.technologies}
+                    />
                   ))}
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="top-full left-[25%] translate-y-4 cursor-pointer" />
-        <CarouselNext className="top-full right-[25%] translate-y-4 cursor-pointer" />
+        <CarouselPrevious className="top-full left-[25%] mt-16 cursor-pointer" />
+        <CarouselNext className="top-full right-[25%] mt-16 cursor-pointer" />
       </Carousel>
-      <div className="mt-8 flex justify-center gap-2">
+      <div className="mt-16 flex justify-center gap-2">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}

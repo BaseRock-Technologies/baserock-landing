@@ -45,26 +45,56 @@ export const services = [
   },
 ]
 
+// images
+import NextJs from "@/public/assets/icons/nextjs.svg"
+import Tailwindcss from "@/public/assets/icons/tailwind-css.svg"
+import Wordpress from "@/public/assets/icons/wordpress.svg"
+import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
+
 export const projects = [
   {
     title: "Cloud Migration",
     description: "Seamless migration of legacy systems to modern cloud infrastructure.",
-    image: "",
+    image: ProjectPlaceholder,
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
   },
   {
     title: "Security Implementation",
     description: "Enterprise-wide cybersecurity solution for a financial institution.",
-    image: "",
+    image: ProjectPlaceholder,
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
   },
   {
     title: "Digital Workplace",
     description: "Modern workplace transformation for remote-first company.",
-    image: "",
+    image: ProjectPlaceholder,
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
   },
   {
     title: "AI-Powered Analytics",
     description: "Implementing advanced AI analytics for data-driven decision making.",
-    image: "",
+    image: ProjectPlaceholder,
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
   },
 ]
 
