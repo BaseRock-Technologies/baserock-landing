@@ -27,8 +27,8 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const router = useRouter();
   return (
-    <Card className="relative overflow-hidden rounded-md py-0">
-      <div className="group relative aspect-video overflow-hidden">
+    <Card className="relative flex h-full w-full overflow-hidden rounded-md py-0">
+      <div className="group relative aspect-video h-full overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
@@ -38,10 +38,12 @@ export default function ProjectCard({
         />
       </div>
 
-      <CardContent className="flex flex-col gap-4 p-4">
+      <CardContent className="relative flex h-full flex-col gap-4 p-4">
         <div className="flex flex-col gap-2">
           <h3 className=" text-lg font-semibold">{title}</h3>
-          <p className="text-muted-foreground  text-sm">{description}</p>
+          <p className="text-muted-foreground line-clamp-3 text-sm">
+            {description}
+          </p>
         </div>
         <div className="flex gap-2">
           {technologies.map((tech) => (
@@ -60,7 +62,7 @@ export default function ProjectCard({
           ))}
         </div>
         <Button
-          className="bg-primary relative ml-auto w-fit cursor-pointer rounded-sm text-white"
+          className="bg-primary relative mt-auto ml-auto w-fit cursor-pointer rounded-sm text-white"
           onClick={() => router.push(link)}
         >
           Know More

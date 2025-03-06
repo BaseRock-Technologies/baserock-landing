@@ -2,13 +2,10 @@ import {
   BarChart3,
   Cloud,
   Code2,
-  Facebook,
-  Github,
   Globe2,
   Instagram,
   Layout,
   Shield,
-  Twitter,
   Linkedin,
 } from "lucide-react"
 
@@ -54,7 +51,7 @@ import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
 export const projects = [
   {
     title: "Cloud Migration",
-    description: "Seamless migration of legacy systems to modern cloud infrastructure.",
+    description: "Seamless migration of legacy systems to modern cloud infrastructure. Seamless migration of legacy systems to modern cloud infrastructure.",
     image: ProjectPlaceholder,
     technologies: [
       { name: "Next.js", icon: NextJs },
@@ -101,78 +98,175 @@ export const projects = [
 export const testimonials = [
   {
     name: "Adam Wilson",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "From novice to pro, Tech Consulting helps our team uncover the extraordinary in our business data!",
+    image: "",
+    quote: "From novice to pro, Tech Consulting helps ",
+    role: "Senior Executive"
   },
   {
     name: "Mikasa Chen",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote:
       "They level the technology field for our team, enabling both beginners and pros to easily implement advanced solutions.",
-  },
+    role: "Senior Executive"
+    },
   {
     name: "Elizabeth Taylor",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote:
-      "Their user-friendly approach lets our whole team, regardless of skill, leverage cutting-edge technology effectively.",
-  },
+      "Great",
+    role: "Senior Executive"
+    },
   {
     name: "James Rodriguez",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "Outstanding service! The cloud migration was seamless and improved our efficiency dramatically.",
+    role: "Senior Executive"
   },
   {
     name: "Sarah Johnson",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "The cybersecurity solutions implemented have given us peace of mind and robust protection.",
+    role: "Senior Executive"
   },
   {
     name: "Michael Chang",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "Their data analytics solutions provided insights that transformed our decision-making process.",
+    role: "Senior Executive"
   },
   {
     name: "Emma Davis",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
+    role: "Senior Executive"
   },
   {
     name: "David Kim",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
   },
   {
     name: "Lisa Martinez",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
   },
   {
     name: "Robert Chen",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
     quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
+  },
+  {
+    name: "David Kim",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
+  },
+  {
+    name: "Lisa Martinez",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Robert Chen",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Emma Davis",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
+    role: "Senior Executive"
+  },
+  {
+    name: "David Kim",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
+  },
+  {
+    name: "Lisa Martinez",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Robert Chen",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
+  },
+  {
+    name: "David Kim",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
+  },
+  {
+    name: "Lisa Martinez",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Robert Chen",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Emma Davis",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
+    role: "Senior Executive"
+  },
+  {
+    name: "David Kim",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
+  },
+  {
+    name: "Lisa Martinez",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Robert Chen",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
+  },
+  {
+    name: "David Kim",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
+    role: "Senior Executive"
+  },
+  {
+    name: "Lisa Martinez",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "Their custom software solutions have streamlined our operations significantly.",
+    role: "Senior Executive"
+  },
+  {
+    name: "Robert Chen",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
+    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
+    role: "Senior Executive"
   },
 ]
 
 export const socialLinks = [
   {
-    icon: Twitter,
-    href: "#",
-    label: "Twitter",
-  },
-  {
     icon: Linkedin,
     href: "#",
     label: "LinkedIn",
-  },
-  {
-    icon: Github,
-    href: "#",
-    label: "GitHub",
-  },
-  {
-    icon: Facebook,
-    href: "#",
-    label: "Facebook",
   },
   {
     icon: Instagram,

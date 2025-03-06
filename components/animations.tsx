@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export function useAnimations() {
   useEffect(() => {
     // Animate service cards
-    const serviceCards = document.querySelectorAll(".service-card")
+    const serviceCards = document.querySelectorAll(".service-card");
     serviceCards.forEach((card, index) => {
       gsap.fromTo(
         card,
@@ -20,44 +20,44 @@ export function useAnimations() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          delay: index * 0.2,
-          ease: "power2.out",
+          duration: 0.2,
+          delay: index * 0.02,
+          ease: "power2.inOut",
           scrollTrigger: {
             trigger: card,
             start: "top bottom-=100",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         },
-      )
-    })
+      );
+    });
 
-    // Animate testimonial cards
-    const testimonialCards = document.querySelectorAll(".testimonial-card")
-    testimonialCards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: index * 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=100",
-            toggleActions: "play none none reverse",
-          },
-        },
-      )
-    })
+    // // Animate testimonial cards
+    // const testimonialCards = document.querySelectorAll(".testimonial-card");
+    // testimonialCards.forEach((card, index) => {
+    //   gsap.fromTo(
+    //     card,
+    //     {
+    //       opacity: 0,
+    //       y: 50,
+    //     },
+    //     {
+    //       opacity: 1,
+    //       y: 0,
+    //       duration: 0.2,
+    //       delay: index * 0.1,
+    //       ease: "power2.in",
+    //       scrollTrigger: {
+    //         trigger: card,
+    //         start: "top bottom-=100",
+    //         toggleActions: "play none none none",
+    //       },
+    //     },
+    //   );
+    // });
 
     // Animate contact form
-    const contactForm = document.querySelector(".contact-form")
+    const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
       gsap.fromTo(
         contactForm,
@@ -73,11 +73,10 @@ export function useAnimations() {
           scrollTrigger: {
             trigger: contactForm,
             start: "top center+=200",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         },
-      )
+      );
     }
-  }, [])
+  }, []);
 }
-

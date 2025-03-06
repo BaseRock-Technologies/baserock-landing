@@ -18,7 +18,7 @@
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(54.35671673239278% 0.171 285.541336574909);
+  --primary: oklch(51.26% 0.293064 288.3364);
   /* --primary: oklch(0.21 0.006 285.885); */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.967 0.001 286.375);
@@ -46,6 +46,7 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.871 0.006 286.286);
+  --theme-card: oklch(98.16% 0.0017 247.84);
 }
 
 .dark {
@@ -55,7 +56,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.141 0.005 285.823);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(54.35671673239278% 0.171 285.541336574909);
+  --primary: oklch(51.26% 0.293064 288.3364);
   /* --primary: oklch(0.985 0 0); */
   --primary-foreground: oklch(0.21 0.006 285.885);
   --secondary: oklch(0.274 0.006 286.033);
@@ -82,6 +83,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.274 0.006 286.033);
   --sidebar-ring: oklch(0.442 0.017 285.786);
+  --theme-card: oklch(19.95% 0.0025 247.95);
 }
 
 @theme inline {
@@ -121,6 +123,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-theme-card: var(--theme-card);
 }
 
 @layer base {
@@ -143,4 +146,24 @@
   .custom-container {
     @apply container px-6 sm:px-10 md:px-14 lg:px-20;
   }
+}
+
+.testimonial-card {
+  outline: none;
+  box-shadow: none;
+  background:
+    linear-gradient(var(--theme-card), var(--theme-card)) padding-box,
+    linear-gradient(
+        to bottom right,
+        transparent 19%,
+        oklch(51.26% 0.2188 288.3364 / 71.36%),
+        transparent 91%
+      )
+      border-box;
+  border-top: 4px;
+  border-right: 4px;
+  border-bottom: 0;
+  border-left: 0;
+  border-style: solid;
+  border-color: transparent;
 }

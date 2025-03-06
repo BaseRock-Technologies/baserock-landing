@@ -17,12 +17,13 @@ export function ServiceCard({
   return (
     <div
       className={cn(
-        "service_card relative cursor-pointer overflow-hidden rounded-lg bg-gray-100/50 p-4 pt-14 transition-shadow duration-250 dark:bg-gray-50/5",
+        "service-card bg-theme-card relative cursor-pointer overflow-hidden rounded-lg p-4 pt-14 pb-8 transition-shadow duration-250",
         className,
       )}
     >
-      <span className="icon relative z-20 table p-2">
-        <Icon className="text-primary relative z-10 block size-6 transform-gpu transition-colors duration-250" />
+      <span className="relative z-20 flex size-10 items-center justify-center">
+        <div className="bg-secondary border-border absolute size-10 rounded-full border"></div>
+        <Icon className="text-primary relative z-10 block transform-gpu transition-colors duration-250" />
       </span>
       <h4 className="relative z-20 mt-3 mb-1 text-xl leading-8 font-semibold">
         {title}

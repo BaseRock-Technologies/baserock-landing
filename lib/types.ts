@@ -11,3 +11,10 @@ export interface Project {
   link: string
 }
 
+export interface Testimonial {
+  name: string
+  image: string,
+  quote: string
+  role: string
+  companyLogo?: string
+}
