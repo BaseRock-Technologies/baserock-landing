@@ -225,7 +225,7 @@ export function TestimonialsGrid({ testimonials }: TestimonialsGridProps) {
         ))}
       </div>
       {visibleCount < testimonials.length && initialLoad && (
-        <div className="from-background via-background/80 absolute inset-x-0 bottom-0 flex h-full w-full items-end justify-center bg-gradient-to-t to-transparent">
+        <div className="from-background via-background/40 absolute inset-x-0 bottom-0 flex h-full w-full items-end justify-center bg-gradient-to-t to-transparent">
           <div className="pb-8 text-center">
             <Button
               variant="outline"

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { SetStateAction } from "react";
+import { SetStateAction, useEffect } from "react";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -17,6 +17,18 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex w-full items-center justify-center border-b backdrop-blur">

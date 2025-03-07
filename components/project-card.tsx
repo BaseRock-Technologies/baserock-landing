@@ -33,7 +33,7 @@ export default function ProjectCard({
           src={imageUrl}
           alt={title}
           fill
-          className="object-cover opacity-50 transition-all duration-500 ease-in-out group-hover:scale-125 group-hover:opacity-100"
+          className="object-cover opacity-80 transition-all duration-500 ease-in-out group-hover:scale-125 group-hover:opacity-100"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
         />
       </div>

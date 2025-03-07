@@ -45,7 +45,7 @@ export default function Page() {
       <section className="bg-background text-foreground relative flex min-h-[calc(100vh-3.5rem)] w-full items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full">
           <AnimatedImageZoom src={BannerImage} alt="Banner" />
-          <div className="absolute inset-0 bg-black/80"></div>
+          <div className="absolute inset-0 bg-black/75"></div>
         </div>
 
         <div className="custom-container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center">
