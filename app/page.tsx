@@ -49,15 +49,16 @@ export default function Page() {
         </div>
 
         <div className="custom-container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center">
-          <AnimatedText className="mb-6 text-5xl font-bold tracking-tighter text-white  sm:text-6xl md:text-7xl lg:text-8xl">
-            Transforming Business Through Technology
+          <AnimatedText className="mb-6 text-5xl font-bold tracking-tighter text-white  sm:text-6xl md:text-7xl">
+            From Code to Communication — We Build, Manage & Deliver
           </AnimatedText>
           <AnimatedText
             className="text-muted-foreground mx-auto mb-8 max-w-2xl text-sm sm:text-xl"
             delay={0.3}
           >
-            We help businesses navigate the digital landscape with innovative IT
-            solutions and strategic consulting services.
+            Custom tech solutions and content-driven services designed for
+            impact. Whether you&apos;re building a brand, launching a product,
+            or scaling your digital presence — we&apos;re here to help.
           </AnimatedText>
           <div className="flex justify-center gap-4 sm:flex-row">
             <Button
@@ -65,7 +66,7 @@ export default function Page() {
               className="bg-primary hover:bg-primary/90 cursor-pointer text-white"
               onClick={() => setIsContactOpen(true)}
             >
-              Contact Us
+              Book a Discovery Call
             </Button>
             <Button
               size="lg"
@@ -73,7 +74,7 @@ export default function Page() {
               className="cursor-pointer"
               onClick={() => scrollToSection("services")}
             >
-              Our Services
+              Start Your Project Today
             </Button>
           </div>
         </div>
@@ -88,17 +89,25 @@ export default function Page() {
                 About Us
               </h2>
               <p className="text-muted-foreground mb-4 text-lg">
-                With over a decade of experience in IT consulting, we&apos;ve
-                helped hundreds of businesses achieve their digital
-                transformation goals. Our team of experts brings together deep
-                industry knowledge and technical expertise to deliver solutions
-                that drive real business value.
+                At BaseRock Technologies, we blend technical expertise with
+                clear communication to bring your vision to life. Led by
+                Sahithya, our freelance-powered team delivers quality-first
+                results in development, design, writing, and digital management.
               </p>
+              <p className="text-muted-foreground text-lg">We value:</p>
+              <ul className="text-muted-foreground mb-4 list-disc pl-6 text-lg">
+                <li>Fast, clear communication</li>
+                <li>Attention to every detail</li>
+                <li>Client-first, goal-driven process</li>
+                <li>Empathy, trust, and consistency</li>
+              </ul>
               <p className="text-muted-foreground text-lg">
-                We believe in building long-term partnerships with our clients,
-                understanding their unique challenges, and delivering tailored
-                solutions that help them stay ahead in today&apos;s competitive
-                landscape.
+                We combine technical skills with people skills — so working with
+                us feels easy, not overwhelming.
+              </p>
+              <p className="text-muted-foreground mt-4 text-lg font-semibold">
+                Your idea deserves a partner who listens, thinks, and executes.
+                That&apos;s us.
               </p>
             </div>
             <AnimatedImageZoomOut
@@ -133,8 +142,12 @@ export default function Page() {
       <section id="projects" className="py-16 md:py-24">
         <div className="custom-container">
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
-            Featured Projects
+            Real Projects. Real Impact.
           </h2>
+          <p className="text-muted-foreground mb-8 text-center text-lg">
+            From SaaS Products to personal brands that shine — our work speaks
+            for itself.
+          </p>
           <ProjectCarousel projects={projects} />
         </div>
       </section>
@@ -144,15 +157,12 @@ export default function Page() {
         <div className="custom-container">
           <div className="mb-12 flex flex-col items-center justify-center text-center">
             <div className="bg-primary relative mb-4 flex w-fit items-center justify-center gap-1 rounded-lg rounded-bl-none px-4 py-1 ">
-              <MessageCircleMoreIcon size={20} />
+              <MessageCircleMoreIcon size={20} className="text-white" />
               <h1 className=" text-sm text-white">testimonials</h1>
             </div>
             <h2 className="text-foreground text-3xl font-bold tracking-tighter sm:text-4xl">
-              Public cheer for Us!
+              What Clients Say
             </h2>
-            <p className="text-muted-foreground mt-2">
-              Find out how our users spreading the word
-            </p>
           </div>
           <TestimonialsGrid testimonials={testimonials} />
         </div>
@@ -169,17 +179,17 @@ export default function Page() {
                 className="hover:text-primary transition-colors"
                 aria-label={social.label}
               >
-                <social.icon className="h-6 w-6" />
+                <social.icon className="text-primary h-6 w-6 dark:text-white" />
               </a>
             ))}
           </div>
           <div className="group relative flex items-center justify-center gap-1 text-center text-sm text-gray-400">
             <CopyrightIcon
-              className="group-hover:text-primary text-white"
+              className="group-hover:text-primary text-primary dark:text-white"
               size={20}
             />{" "}
             {new Date().getFullYear()}
-            <h1>Tech Consulting. All rights reserved.</h1>
+            <h1>BaseRock Technologies. All rights reserved.</h1>
           </div>
         </div>
       </footer>

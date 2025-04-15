@@ -62,7 +62,7 @@ export default function ProjectCard({
           ))}
         </div>
         <Button
-          className="bg-primary relative mt-auto ml-auto w-fit cursor-pointer rounded-sm text-white"
+          className="bg-primary hover:bg-primary relative mt-auto ml-auto w-fit cursor-pointer rounded-sm text-white"
           onClick={() => router.push(link)}
         >
           Know More

@@ -51,13 +51,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-white/50 backdrop-blur-sm dark:bg-black/50">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-white/20 backdrop-blur-sm dark:bg-black/50">
       <div className="bg-theme-card relative w-full max-w-lg rounded-lg p-6 shadow-lg">
         <button
           className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
           onClick={onClose}
         >
-          <X size={20} className="text-foreground cursor-pointer" />
+          <X size={20} className="text-primary cursor-pointer" />
         </button>
         <h2 className="mb-3 text-2xl font-bold">Get in Touch</h2>
         <p className="text-muted-foreground mb-4 text-base">
@@ -66,7 +66,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         </p>
         <div className="mb-4 flex items-center gap-2 text-sm">
           <Mail className="text-primary h-5 w-5" />
-          <span>contact@techconsulting.com</span>
+          <span>baserockservices@gmail.com</span>
         </div>
         <Card className="border-none bg-transparent">
           <CardContent className="px-6">

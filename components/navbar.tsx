@@ -34,7 +34,7 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex w-full items-center justify-center border-b backdrop-blur">
       <div className="custom-container relative flex h-14 w-full items-center justify-between gap-6">
         <Link className="font-bold" href="/">
-          TechConsulting
+          Baserock
         </Link>
 
         <nav className="hidden items-center  text-sm font-medium md:flex">

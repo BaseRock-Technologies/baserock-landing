@@ -48,7 +48,7 @@
 
 .service-card .background .tile {
   position: absolute;
-  background-color: color-mix(in oklch, var(--primary) 5%, transparent);
+  background-color: color-mix(in oklch, var(--primary) 12%, transparent);
   animation-duration: 8s;
   animation-iteration-count: infinite;
   opacity: 0;

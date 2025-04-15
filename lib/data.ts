@@ -1,44 +1,54 @@
 import {
-  BarChart3,
-  Cloud,
   Code2,
-  Globe2,
-  Instagram,
   Layout,
-  Shield,
+  BarChart3,
+  PenTool,
+  Mic2,
   Linkedin,
+  Instagram,
+  Twitter,
 } from "lucide-react"
 
 export const services = [
   {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description: "Secure and scalable cloud infrastructure tailored to your business needs.",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description: "Protect your business with advanced security solutions and best practices.",
-  },
-  {
     icon: Code2,
-    title: "Custom Development",
-    description: "Bespoke software solutions designed to streamline your operations.",
-  },
-  {
-    icon: BarChart3,
-    title: "Data Analytics",
-    description: "Transform your data into actionable insights for better decision making.",
+    title: "Web & App Development",
+    description: "Crafting custom websites and mobile applications focused on performance, scalability, and user experience.",
   },
   {
     icon: Layout,
-    title: "Digital Transformation",
-    description: "Modernize your business with cutting-edge digital solutions.",
+    title: "Product Development",
+    description: "Building digital products from MVPs to full-scale platforms with a problem-solving approach.",
   },
   {
-    icon: Globe2,
-    title: "IT Consulting",
-    description: "Strategic technology guidance to help your business grow and succeed.",
+    icon: BarChart3,
+    title: "Project Management",
+    description: "Coordinating and executing projects seamlessly using agile methodologies and collaborative tools.",
+  },
+  {
+    icon: Layout,
+    title: "Product Management",
+    description: "Developing strategy-led product visions, roadmaps, and feature optimizations with a user-centric focus.",
+  },
+  {
+    icon: PenTool,
+    title: "Content & SEO Writing",
+    description: "Creating compelling content optimized for search engines to enhance your online presence.",
+  },
+  {
+    icon: Linkedin,
+    title: "LinkedIn Management & Personal Branding",
+    description: "Elevating your professional profile and personal brand on LinkedIn to connect with your target audience effectively.",
+  },
+  {
+    icon: Layout,
+    title: "Design (UI/UX, Graphics)",
+    description: "Designing intuitive user interfaces and engaging graphics to enhance user experience and brand identity.",
+  },
+  {
+    icon: Mic2,
+    title: "Voiceovers & Event Hosting",
+    description: "Providing professional voiceover services and event hosting to captivate and engage your audience.",
   },
 ]
 
@@ -50,8 +60,8 @@ import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
 
 export const projects = [
   {
-    title: "Cloud Migration",
-    description: "Seamless migration of legacy systems to modern cloud infrastructure. Seamless migration of legacy systems to modern cloud infrastructure.",
+    title: "SaaS Product Development",
+    description: "Built a scalable SaaS platform from concept to launch, focusing on user experience and performance.",
     image: ProjectPlaceholder,
     technologies: [
       { name: "Next.js", icon: NextJs },
@@ -61,8 +71,8 @@ export const projects = [
     link: "/",
   },
   {
-    title: "Security Implementation",
-    description: "Enterprise-wide cybersecurity solution for a financial institution.",
+    title: "Personal Branding & LinkedIn",
+    description: "Transformed a professional's LinkedIn presence, resulting in increased visibility and opportunities.",
     image: ProjectPlaceholder,
     technologies: [
       { name: "Next.js", icon: NextJs },
@@ -72,19 +82,8 @@ export const projects = [
     link: "/",
   },
   {
-    title: "Digital Workplace",
-    description: "Modern workplace transformation for remote-first company.",
-    image: ProjectPlaceholder,
-    technologies: [
-      { name: "Next.js", icon: NextJs },
-      { name: "Tailwind", icon: Tailwindcss },
-      { name: "WordPress", icon: Wordpress },
-    ],
-    link: "/",
-  },
-  {
-    title: "AI-Powered Analytics",
-    description: "Implementing advanced AI analytics for data-driven decision making.",
+    title: "E-commerce Website",
+    description: "Developed a custom e-commerce solution with seamless user experience and optimized performance.",
     image: ProjectPlaceholder,
     technologies: [
       { name: "Next.js", icon: NextJs },
@@ -97,181 +96,40 @@ export const projects = [
 
 export const testimonials = [
   {
-    name: "Adam Wilson",
+    name: "Client",
     image: "",
-    quote: "From novice to pro, Tech Consulting helps ",
-    role: "Senior Executive"
+    quote: "Sahithya delivers with clarity and care. Every request is handled with attention to detail and exceptional responsiveness.",
+    role: "Web Development Client"
   },
   {
-    name: "Mikasa Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote:
-      "They level the technology field for our team, enabling both beginners and pros to easily implement advanced solutions.",
-    role: "Senior Executive"
-    },
-  {
-    name: "Elizabeth Taylor",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote:
-      "Great",
-    role: "Senior Executive"
-    },
-  {
-    name: "James Rodriguez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Outstanding service! The cloud migration was seamless and improved our efficiency dramatically.",
-    role: "Senior Executive"
+    name: "Client",
+    image: "",
+    quote: "Her ability to understand content and tech both is rare. Our project moved faster and better because of her.",
+    role: "SEO & Writing Client"
   },
   {
-    name: "Sarah Johnson",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The cybersecurity solutions implemented have given us peace of mind and robust protection.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Michael Chang",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their data analytics solutions provided insights that transformed our decision-making process.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Emma Davis",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Emma Davis",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Emma Davis",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The digital transformation journey with Tech Consulting has been revolutionary for our business.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
-  {
-    name: "David Kim",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Exceptional expertise in IT infrastructure optimization. Highly recommended!",
-    role: "Senior Executive"
-  },
-  {
-    name: "Lisa Martinez",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "Their custom software solutions have streamlined our operations significantly.",
-    role: "Senior Executive"
-  },
-  {
-    name: "Robert Chen",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7OeeYadaq6EjpEp4rEIOlmwRiaBAiJ.png",
-    quote: "The team's dedication to delivering quality solutions is unmatched in the industry.",
-    role: "Senior Executive"
-  },
+    name: "Founder",
+    image: "",
+    quote: "From branding to execution, BaseRock brought my startup idea to life.",
+    role: "Product Client"
+  }
 ]
 
 export const socialLinks = [
   {
+    href: "https://linkedin.com/company/baserock-technologies",
     icon: Linkedin,
-    href: "#",
-    label: "LinkedIn",
+    label: "LinkedIn"
   },
   {
+    href: "https://instagram.com/baserocktechnologies",
     icon: Instagram,
-    href: "#",
-    label: "Instagram",
+    label: "Instagram"
   },
+  {
+    href: "https://twitter.com/baserocktech",
+    icon: Twitter,
+    label: "Twitter"
+  }
 ]
 
