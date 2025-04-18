@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import type { Testimonial } from "@/lib/types";
+import type { Testimonial } from "@/types/types";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

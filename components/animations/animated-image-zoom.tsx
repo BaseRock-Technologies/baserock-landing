@@ -46,7 +46,7 @@ export function AnimatedImageZoom({
   return (
     <div
       ref={imageRef}
-      className={`relative h-full w-full overflow-hidden ${className}`}
+      className={`relative h-full w-full overflow-hidden transition-all duration-300 ${className}`}
     >
       <Image
         src={src}

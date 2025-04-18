@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import type { Project } from "@/lib/types";
+import type { Project } from "@/types/types";
 import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
 import ProjectCard from "./project-card";
 
