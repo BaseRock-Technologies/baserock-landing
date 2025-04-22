@@ -56,13 +56,19 @@ export const services = [
 import NextJs from "@/public/assets/icons/nextjs.svg"
 import Tailwindcss from "@/public/assets/icons/tailwind-css.svg"
 import Wordpress from "@/public/assets/icons/wordpress.svg"
-import ProjectPlaceholder from "@/public/assets/projects-placeholder.jpg";
+import Placeholder from "@/public/assets/projects-placeholder.jpg";
+import { Project } from "./types"
 
-export const projects = [
+// Sample data for the images
+export const projectSliderData: Project[] = [
   {
-    title: "SaaS Product Development",
-    description: "Built a scalable SaaS platform from concept to launch, focusing on user experience and performance.",
-    image: ProjectPlaceholder,
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project One",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -71,9 +77,13 @@ export const projects = [
     link: "/",
   },
   {
-    title: "Personal Branding & LinkedIn",
-    description: "Transformed a professional's LinkedIn presence, resulting in increased visibility and opportunities.",
-    image: ProjectPlaceholder,
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Two",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -82,9 +92,13 @@ export const projects = [
     link: "/",
   },
   {
-    title: "E-commerce Website",
-    description: "Developed a custom e-commerce solution with seamless user experience and optimized performance.",
-    image: ProjectPlaceholder,
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Three",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -92,7 +106,67 @@ export const projects = [
     ],
     link: "/",
   },
-]
+  {
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Four",
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
+  },
+  {
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Five",
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
+  },
+  {
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Six",
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
+  },
+  {
+    images: [
+      { id: 1, image: Placeholder },
+      { id: 2, image: Placeholder },
+      { id: 3, image: Placeholder },
+      { id: 4, image: Placeholder },
+    ],
+    title: "Project Seven",
+    technologies: [
+      { name: "Next.js", icon: NextJs },
+      { name: "Tailwind", icon: Tailwindcss },
+      { name: "WordPress", icon: Wordpress },
+    ],
+    link: "/",
+  },
+];
 
 export const testimonials = [
   {

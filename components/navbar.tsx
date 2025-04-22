@@ -31,109 +31,117 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
   }, [isOpen]);
 
   return (
-    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex w-full items-center justify-center border-b backdrop-blur">
-      <div className="custom-container relative flex h-14 w-full items-center justify-between gap-6">
-        <Link className="font-bold" href="/">
-          Baserock
-        </Link>
+    <header className="fixed top-0 z-50 flex w-full items-center justify-center">
+      <div className="custom-container flex items-center justify-center ">
+        <div className="bg-background supports-[backdrop-filter]:bg-background/92 relative m-5 flex h-14 w-full items-center justify-between gap-6 rounded-xl border px-12 backdrop-blur">
+          <Link className="font-bold" href="/">
+            Baserock
+          </Link>
 
-        <nav className="hidden items-center  text-sm font-medium md:flex">
-          <Button variant={"link"} onClick={() => scrollToSection("about")}>
-            About
-          </Button>
-          <Button variant={"link"} onClick={() => scrollToSection("services")}>
-            Services
-          </Button>
-          <Button variant={"link"} onClick={() => scrollToSection("projects")}>
-            Projects
-          </Button>
+          <nav className="hidden items-center  text-sm font-medium md:flex">
+            <Button variant={"link"} onClick={() => scrollToSection("about")}>
+              About
+            </Button>
+            <Button
+              variant={"link"}
+              onClick={() => scrollToSection("services")}
+            >
+              Services
+            </Button>
+            <Button
+              variant={"link"}
+              onClick={() => scrollToSection("projects")}
+            >
+              Projects
+            </Button>
+            <Button
+              variant={"link"}
+              onClick={() => scrollToSection("testimonials")}
+            >
+              Testimonials
+            </Button>
+          </nav>
+
           <Button
             variant={"link"}
-            onClick={() => scrollToSection("testimonials")}
+            className="bg-primary hover:bg-primary/90 hidden text-white md:block"
+            onClick={() => {
+              setIsOpen(false);
+              setContactOpen(true);
+            }}
           >
-            Testimonials
+            Contact Us
           </Button>
-        </nav>
 
-        <Button
-          variant={"link"}
-          className="bg-primary hover:bg-primary/90 hidden text-white md:block"
-          onClick={() => {
-            setIsOpen(false);
-            setContactOpen(true);
-          }}
-        >
-          Contact Us
-        </Button>
+          <Button
+            variant={"link"}
+            className="z-50 cursor-pointer p-2 focus:outline-none md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <X
+                className="hover:text-primary text-black dark:text-white"
+                size={24}
+              />
+            ) : (
+              <Menu
+                className="hover:text-primary text-black dark:text-white"
+                size={24}
+              />
+            )}
+          </Button>
 
-        <Button
-          variant={"link"}
-          className="z-50 cursor-pointer p-2 focus:outline-none md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X
-              className="hover:text-primary text-black dark:text-white"
-              size={24}
-            />
-          ) : (
-            <Menu
-              className="hover:text-primary text-black dark:text-white"
-              size={24}
-            />
-          )}
-        </Button>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="bg-background/99 fixed top-0 left-0 flex min-h-screen w-full items-start justify-center shadow-md backdrop-blur-3xl md:hidden">
-            <div className="custom-container relative flex min-h-screen flex-col space-y-10 py-4">
-              <Link href="/" className="font-bold">
-                TechConsulting
-              </Link>
-              <nav className="flex flex-col items-start space-y-4 py-4 text-sm font-medium">
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="bg-background/99 fixed top-0 left-0 flex min-h-screen w-full items-start justify-center shadow-md backdrop-blur-3xl md:hidden">
+              <div className="custom-container relative flex min-h-screen flex-col space-y-10 py-4">
+                <Link href="/" className="font-bold">
+                  TechConsulting
+                </Link>
+                <nav className="flex flex-col items-start space-y-4 py-4 text-sm font-medium">
+                  <Button
+                    variant={"link"}
+                    className="hover:text-primary text-2xl text-black dark:text-white"
+                    onClick={() => scrollToSection("about")}
+                  >
+                    About
+                  </Button>
+                  <Button
+                    variant={"link"}
+                    className="hover:text-primary text-2xl text-black dark:text-white"
+                    onClick={() => scrollToSection("services")}
+                  >
+                    Services
+                  </Button>
+                  <Button
+                    variant={"link"}
+                    className="hover:text-primary text-2xl text-black dark:text-white"
+                    onClick={() => scrollToSection("projects")}
+                  >
+                    Projects
+                  </Button>
+                  <Button
+                    variant={"link"}
+                    className="hover:text-primary text-2xl text-black dark:text-white"
+                    onClick={() => scrollToSection("testimonials")}
+                  >
+                    Testimonials
+                  </Button>
+                </nav>
                 <Button
                   variant={"link"}
-                  className="hover:text-primary text-2xl text-black dark:text-white"
-                  onClick={() => scrollToSection("about")}
+                  className="bg-primary hover:bg-primary/90 mx-auto mt-auto mb-20 w-fit px-10"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setContactOpen(true);
+                  }}
                 >
-                  About
+                  Contact Us
                 </Button>
-                <Button
-                  variant={"link"}
-                  className="hover:text-primary text-2xl text-black dark:text-white"
-                  onClick={() => scrollToSection("services")}
-                >
-                  Services
-                </Button>
-                <Button
-                  variant={"link"}
-                  className="hover:text-primary text-2xl text-black dark:text-white"
-                  onClick={() => scrollToSection("projects")}
-                >
-                  Projects
-                </Button>
-                <Button
-                  variant={"link"}
-                  className="hover:text-primary text-2xl text-black dark:text-white"
-                  onClick={() => scrollToSection("testimonials")}
-                >
-                  Testimonials
-                </Button>
-              </nav>
-              <Button
-                variant={"link"}
-                className="bg-primary hover:bg-primary/90 mx-auto mt-auto mb-20 w-fit px-10"
-                onClick={() => {
-                  setIsOpen(false);
-                  setContactOpen(true);
-                }}
-              >
-                Contact Us
-              </Button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );

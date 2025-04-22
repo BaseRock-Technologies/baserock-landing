@@ -100,7 +100,7 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
       </div>
 
       {/* Image Containers */}
-      <div className="absolute  bottom-4 z-20 mr-0 flex w-full items-center justify-end gap-4 sm:bottom-8 sm:mr-4">
+      <div className="absolute  bottom-2 z-20 mr-0 flex w-full items-center justify-end gap-2 sm:bottom-4 sm:mr-4">
         <Carousel
           setApi={setApi}
           opts={{
@@ -108,14 +108,14 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
             align: "center",
             skipSnaps: false,
           }}
-          className="relative flex h-36 w-full max-w-xl min-w-xl items-center justify-center"
+          className="relative flex h-36 w-full max-w-md min-w-md items-center justify-center"
           plugins={[plugin.current]}
         >
           <CarouselContent className="h-36 items-center">
             {HeroSliderImages.map((image, index) => (
               <CarouselItem
                 key={index}
-                className={`${current === index ? "h-36" : "h-32"} w-full basis-1/3 `}
+                className={`${current === index ? "h-28" : "h-24"} w-full basis-1/3 pl-2`}
               >
                 <Link href={image.link} className="relative h-full w-full">
                   <Card className="relative h-full w-full rounded-none p-0">

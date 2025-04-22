@@ -1,18 +1,34 @@
 "use client";
 
-import { useRef } from "react";
+import React from "react";
 import gsap from "gsap";
 import { cn } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
+import { useAnimations } from "../animations";
+import { spaceMono } from "@/lib/fonts";
+import { services, testimonials, socialLinks } from "@/types/data";
+import { MessageCircleMoreIcon, CopyrightIcon } from "lucide-react";
+import { AnimatedImageZoomOut } from "../animations/animated-image-zoom-out";
+import { ContactModal } from "../modals/contact-modal";
+import ParallaxImageTrack from "../ParallaxImageTrack";
+import { ServiceCard } from "../service-card";
+import { TestimonialsGrid } from "../testimonials-grid";
+import Hero from "./hero";
+import AboutUsImage from "@/public/assets/about-us.png";
+import { Navbar } from "../navbar";
 
-const Loader = ({ onComplete }: { onComplete: () => void }) => {
-  const landingRef = useRef<HTMLDivElement>(null);
-  const loaderRef = useRef<HTMLDivElement>(null);
-  const revealerLayerOneRef = useRef<SVGSVGElement>(null);
-  const revealerLayerTwoRef = useRef<SVGSVGElement>(null);
-  const revealerLayerThreeRef = useRef<SVGSVGElement>(null);
+const Loader = () => {
+  const landingRef = React.useRef<HTMLDivElement>(null);
+  const loaderRef = React.useRef<HTMLDivElement>(null);
+  const revealerLayerOneRef = React.useRef<SVGSVGElement>(null);
+  const revealerLayerTwoRef = React.useRef<SVGSVGElement>(null);
+  const revealerLayerThreeRef = React.useRef<SVGSVGElement>(null);
 
-  // Set initial scale to 0 immediately to prevent flickering
+  useAnimations();
+  const [isContactOpen, setIsContactOpen] = React.useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+  const [isLoaderComplete, setIsLoaderComplete] =
+    React.useState<boolean>(false);
 
   useGSAP(() => {
     const revealers = [
@@ -51,8 +67,8 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 onComplete: () => {
                   if (i === delays.length - 1) {
                     loaderRef.current?.remove();
+                    setIsLoaderComplete(true);
                     // Show content after all revealers are done
-                    onComplete();
                   }
                 },
               });
@@ -110,21 +126,19 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
     revealerLayerOneRef,
     revealerLayerTwoRef,
     revealerLayerThreeRef,
-    onComplete,
   ]);
 
   return (
-    <div
-      className="relative h-screen w-screen overflow-hidden"
-      ref={landingRef}
-    >
-      <div className="relative flex h-full w-full items-center justify-center bg-white dark:bg-black">
+    <div className="relative min-h-screen w-screen" ref={landingRef}>
+      <div
+        className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white dark:bg-black"
+        ref={loaderRef}
+      >
         <div
           className={cn(
             "loader-content",
             "flex gap-2 text-black dark:text-white",
           )}
-          ref={loaderRef}
         >
           <div className="count">
             <p>0</p>
@@ -173,7 +187,7 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
           >
             <path
               d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-              className="fill-lime-400"
+              className="fill-primary"
             />
           </svg>
         </div>
@@ -195,11 +209,142 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
           >
             <path
               d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-              className="fill-black dark:fill-white"
+              className="fill-white dark:fill-black"
             />
           </svg>
         </div>
       </div>
+
+      {isLoaderComplete && (
+        <div
+          className={cn(
+            "relative flex min-h-screen w-full flex-col items-center justify-center",
+            spaceMono.className,
+          )}
+        >
+          <Navbar
+            isOpen={isMenuOpen}
+            setIsOpen={setIsMenuOpen}
+            setContactOpen={setIsContactOpen}
+          />
+
+          {/* Hero Section */}
+          <Hero setIsContactOpen={setIsContactOpen} />
+
+          {/* About Section */}
+          <section id="about" className="py-16 md:py-24">
+            <div className="custom-container">
+              <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                <div>
+                  <h2 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl">
+                    About Us
+                  </h2>
+                  <p className="text-muted-foreground mb-4 text-lg">
+                    At BaseRock Technologies, we blend technical expertise with
+                    clear communication to bring your vision to life. Led by
+                    Sahithya, our freelance-powered team delivers quality-first
+                    results in development, design, writing, and digital
+                    management.
+                  </p>
+                  <p className="text-muted-foreground text-lg">We value:</p>
+                  <ul className="text-muted-foreground mb-4 list-disc pl-6 text-lg">
+                    <li>Fast, clear communication</li>
+                    <li>Attention to every detail</li>
+                    <li>Client-first, goal-driven process</li>
+                    <li>Empathy, trust, and consistency</li>
+                  </ul>
+                  <p className="text-muted-foreground text-lg">
+                    We combine technical skills with people skills — so working
+                    with us feels easy, not overwhelming.
+                  </p>
+                  <p className="text-muted-foreground mt-4 text-lg font-semibold">
+                    Your idea deserves a partner who listens, thinks, and
+                    executes. That&apos;s us.
+                  </p>
+                </div>
+                <AnimatedImageZoomOut
+                  src={AboutUsImage}
+                  alt="About Us"
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Services Section */}
+          <section id="services" className="services-section py-16 md:py-24">
+            <div className="custom-container">
+              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
+                Our Services
+              </h2>
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {services.map((service, index) => (
+                  <ServiceCard
+                    key={index}
+                    title={service.title}
+                    description={service.description}
+                    icon={service.icon}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Projects Section */}
+          <section id="projects">
+            <ParallaxImageTrack />
+          </section>
+
+          {/* Testimonials Section */}
+          <section id="testimonials" className="bg-background py-16 md:py-24">
+            <div className="custom-container">
+              <div className="mb-12 flex flex-col items-center justify-center text-center">
+                <div className="bg-primary relative mb-4 flex w-fit items-center justify-center gap-1 rounded-lg rounded-bl-none px-4 py-1 ">
+                  <MessageCircleMoreIcon size={20} className="text-white" />
+                  <h1 className=" text-sm text-white">testimonials</h1>
+                </div>
+                <h2 className="text-foreground text-3xl font-bold tracking-tighter sm:text-4xl">
+                  What Clients Say
+                </h2>
+              </div>
+              <TestimonialsGrid testimonials={testimonials} />
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-theme-card relative w-full text-white transition-colors duration-200">
+            <div className="custom-container mx-auto px-4 py-12">
+              <div className="mb-8 flex justify-center gap-6">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="hover:text-primary transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="text-primary h-6 w-6 dark:text-white" />
+                  </a>
+                ))}
+              </div>
+              <div className="group relative flex items-center justify-center gap-1 text-center text-sm text-gray-400">
+                <CopyrightIcon
+                  className="group-hover:text-primary text-primary dark:text-white"
+                  size={20}
+                />{" "}
+                {new Date().getFullYear()}
+                <h1>BaseRock Technologies. All rights reserved.</h1>
+              </div>
+            </div>
+          </footer>
+
+          {isContactOpen && (
+            <ContactModal
+              isOpen={isContactOpen}
+              onClose={() => setIsContactOpen(false)}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };

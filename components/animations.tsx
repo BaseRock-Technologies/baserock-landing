@@ -32,30 +32,6 @@ export function useAnimations() {
       );
     });
 
-    // // Animate testimonial cards
-    // const testimonialCards = document.querySelectorAll(".testimonial-card");
-    // testimonialCards.forEach((card, index) => {
-    //   gsap.fromTo(
-    //     card,
-    //     {
-    //       opacity: 0,
-    //       y: 50,
-    //     },
-    //     {
-    //       opacity: 1,
-    //       y: 0,
-    //       duration: 0.2,
-    //       delay: index * 0.1,
-    //       ease: "power2.in",
-    //       scrollTrigger: {
-    //         trigger: card,
-    //         start: "top bottom-=100",
-    //         toggleActions: "play none none none",
-    //       },
-    //     },
-    //   );
-    // });
-
     // Animate contact form
     const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
