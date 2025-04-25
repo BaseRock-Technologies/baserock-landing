@@ -65,7 +65,7 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
             sizes="100vw"
             className="relative h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+          <div className="dark:bg-background/75 bg-background/30 absolute inset-0 backdrop-blur-sm"></div>
         </div>
       </div>
       <div className="custom-container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center">
@@ -108,14 +108,14 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
             align: "center",
             skipSnaps: false,
           }}
-          className="relative flex h-36 w-full max-w-md min-w-md items-center justify-center"
+          className="relative flex h-36 w-full max-w-lg min-w-lg items-center justify-center"
           plugins={[plugin.current]}
         >
           <CarouselContent className="h-36 items-center">
             {HeroSliderImages.map((image, index) => (
               <CarouselItem
                 key={index}
-                className={`${current === index ? "h-28" : "h-24"} w-full basis-1/3 pl-2`}
+                className={`${current === index ? "h-28" : "h-24"} w-full basis-1/3`}
               >
                 <Link href={image.link} className="relative h-full w-full">
                   <Card className="relative h-full w-full rounded-none p-0">

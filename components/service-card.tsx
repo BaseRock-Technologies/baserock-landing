@@ -1,3 +1,4 @@
+import { useScreenSize } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
@@ -13,6 +14,7 @@ export function ServiceCard({
   position,
   className,
 }: ServiceCardProps) {
+  const { isMobile } = useScreenSize();
   const getRandomPosition = (position: number) => {
     const choices = [
       "right-10",
@@ -44,15 +46,15 @@ export function ServiceCard({
   };
   const getTitleSize = (title: string) => {
     if (title.length > 30) {
-      return "text-[3.5vw]";
+      return "xl:text-[3.5vw] md:text-[3vw] text-[2vw]";
     }
     if (title.length > 25) {
-      return "text-[4.5vw]";
+      return "xl:text-[4.5vw] md:text-[4vw] text-[3vw]";
     }
     if (title.length > 15) {
-      return "text-[5vw]";
+      return "xl:text-[5vw] md:text-[4.5vw] text-[3.5vw]";
     }
-    return "text-[4vw]";
+    return "xl:text-[4vw] md:text-[3.5vw] text-[2.5vw]";
   };
 
   const handleMouseEnter = () => {
@@ -82,7 +84,17 @@ export function ServiceCard({
     return `${position + 1}.`;
   };
 
-  return (
+  return isMobile ? (
+    <div
+      className={cn(
+        "relative flex  min-h-[350px] min-w-4/5 flex-col gap-6 p-4",
+        getBackground(position),
+      )}
+    >
+      <h2 className="relative text-3xl">{title}</h2>
+      <p className="relative bottom-10 mt-auto text-sm">{description}</p>
+    </div>
+  ) : (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -103,7 +115,7 @@ export function ServiceCard({
         <div
           className={cn(
             getRandomPosition(position),
-            "absolute z-20 text-xl font-semibold",
+            "text-md absolute z-20 font-semibold lg:text-lg xl:text-xl",
           )}
         >
           {formatPosition(position)}
@@ -117,7 +129,7 @@ export function ServiceCard({
           >
             {title}
           </h1>
-          <p className="absolute right-16 bottom-16 max-w-xs text-lg text-white">
+          <p className="text-md absolute right-10 bottom-4 max-w-xs text-white lg:right-16 lg:bottom-16 xl:text-lg">
             {description}
           </p>
         </div>

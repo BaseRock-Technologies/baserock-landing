@@ -7,7 +7,12 @@ import { useGSAP } from "@gsap/react";
 import { useAnimations } from "../animations";
 import { spaceMono } from "@/lib/fonts";
 import { services, testimonials, socialLinks } from "@/types/data";
-import { MessageCircleMoreIcon, CopyrightIcon } from "lucide-react";
+import {
+  MessageCircleMoreIcon,
+  CopyrightIcon,
+  Spline,
+  SplineIcon,
+} from "lucide-react";
 import { AnimatedImageZoomOut } from "../animations/animated-image-zoom-out";
 import { ContactModal } from "../modals/contact-modal";
 import ParallaxImageTrack from "../ParallaxImageTrack";
@@ -276,11 +281,20 @@ const Loader = () => {
             id="services"
             className="services-section relative w-full py-16 md:py-24"
           >
-            <div className="custom-container w-full">
-              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
+            <div className="custom-container relative w-full overflow-hidden max-sm:pr-0">
+              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter max-sm:pr-6 md:text-4xl lg:text-5xl">
                 Find the service you need
               </h2>
-              <div className="relative flex h-full w-full flex-1 flex-col">
+              <div className="absolute right-2 mt-auto max-w-xs translate-y-0 lg:right-1/4 lg:max-w-sm lg:translate-y-12">
+                <p className="relative">
+                  <SplineIcon className="absolute -top-8 left-0 rotate-90" />
+                  <span className="bg-primary text-background leading-relaxed">
+                    It doesn&apos;t matter whether you know where to start or
+                    not, we will always point you in the right direction.
+                  </span>
+                </p>
+              </div>
+              <div className="no-scrollbar relative flex h-full w-full flex-1 gap-4 max-sm:overflow-scroll max-sm:pr-6 sm:mt-[23%] sm:flex-col sm:gap-0">
                 {services.map((service, index) => (
                   <ServiceCard
                     key={index}
@@ -289,6 +303,15 @@ const Loader = () => {
                     position={index}
                   />
                 ))}
+                <div className="from-background via-background  absolute bottom-0 hidden h-[25.9722vw] w-full items-end justify-center bg-gradient-to-t to-transparent sm:flex">
+                  <div className="text-invert-backgroud flex flex-col items-center justify-center gap-2">
+                    <Spline />
+                    <p className="relative max-w-sm text-center text-sm">
+                      We provide our partners with exceptional digital solutions
+                      that bring strategic value and meke their.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
