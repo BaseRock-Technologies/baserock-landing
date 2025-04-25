@@ -272,18 +272,21 @@ const Loader = () => {
           </section>
 
           {/* Services Section */}
-          <section id="services" className="services-section py-16 md:py-24">
-            <div className="custom-container">
+          <section
+            id="services"
+            className="services-section relative w-full py-16 md:py-24"
+          >
+            <div className="custom-container w-full">
               <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
-                Our Services
+                Find the service you need
               </h2>
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="relative flex h-full w-full flex-1 flex-col">
                 {services.map((service, index) => (
                   <ServiceCard
                     key={index}
                     title={service.title}
                     description={service.description}
-                    icon={service.icon}
+                    position={index}
                   />
                 ))}
               </div>

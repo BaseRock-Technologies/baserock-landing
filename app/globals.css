@@ -167,3 +167,12 @@
   border-style: solid;
   border-color: transparent;
 }
+
+.service-card.animate-service-card {
+  transform: translateY(-55%);
+  transition: transform 0.3s ease-out;
+}
+
+.service-card.animate-service-card .title {
+  color: var(--background);
+}
