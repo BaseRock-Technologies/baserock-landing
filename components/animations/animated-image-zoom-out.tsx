@@ -55,7 +55,7 @@ export function AnimatedImageZoomOut({
         width={0}
         height={0}
         sizes={sizes}
-        className="h-full w-full object-cover will-change-transform"
+        className="z-10 h-full w-full object-cover will-change-transform"
       />
     </div>
   );

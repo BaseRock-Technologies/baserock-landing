@@ -84,13 +84,23 @@ export function ServiceCard({
     return `${position + 1}.`;
   };
 
+  const formatPositionInMobile = (position: number) => {
+    if (position + 1 < 10) {
+      return `0${position + 1}`;
+    }
+    return `${position + 1}`;
+  };
+
   return isMobile ? (
     <div
       className={cn(
-        "relative flex  min-h-[350px] min-w-4/5 flex-col gap-6 p-4",
+        "relative flex  min-h-[350px] w-full flex-col gap-6 p-4",
         getBackground(position),
       )}
     >
+      <div className="bg-background relative flex h-10 w-10 items-center justify-center rounded-full p-1">
+        <span className="relative">{formatPositionInMobile(position)}</span>
+      </div>
       <h2 className="relative text-3xl">{title}</h2>
       <p className="relative bottom-10 mt-auto text-sm">{description}</p>
     </div>
@@ -115,7 +125,7 @@ export function ServiceCard({
         <div
           className={cn(
             getRandomPosition(position),
-            "text-md absolute z-20 font-semibold lg:text-lg xl:text-xl",
+            "text-md text-helper absolute z-20 font-semibold lg:text-lg xl:text-xl",
           )}
         >
           {formatPosition(position)}
@@ -129,7 +139,7 @@ export function ServiceCard({
           >
             {title}
           </h1>
-          <p className="text-md absolute right-10 bottom-4 max-w-xs text-white lg:right-16 lg:bottom-16 xl:text-lg">
+          <p className="text-md absolute right-10 bottom-10 max-w-xs text-white lg:right-16 lg:bottom-16 xl:text-lg">
             {description}
           </p>
         </div>

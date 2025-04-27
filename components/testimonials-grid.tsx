@@ -180,7 +180,7 @@ export function TestimonialsGrid({ testimonials }: TestimonialsGridProps) {
       ref={containerRef}
       className="relative h-full w-full space-y-8 overflow-hidden"
     >
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {columns.map((column, colIndex) => (
           <div key={colIndex} className="flex flex-col space-y-6">
             {column.map(({ testimonial, index }) => (

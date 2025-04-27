@@ -8,6 +8,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@radix-ui/react-tooltip";
+import { TooltipProvider } from "./ui/tooltip";
 
 // Image object type
 export interface ImageObject {
@@ -20,6 +21,7 @@ interface ImageDialogProps {
   onOpenChange: (open: boolean) => void;
   title?: string;
   images?: ImageObject[];
+  description?: string;
   technologies?: { name: string; icon: StaticImageData }[];
 }
 
@@ -28,6 +30,7 @@ export default function ImageDialog({
   onOpenChange,
   title = "",
   images = [],
+  description = "",
   technologies = [],
 }: ImageDialogProps) {
   const [currentImage, setCurrentImage] = useState<ImageObject | undefined>(
@@ -166,19 +169,19 @@ export default function ImageDialog({
     >
       <div
         ref={contentRef}
-        className="relative mx-auto h-[85vh] w-full max-w-6xl overflow-hidden rounded-md bg-black"
+        className="relative mx-auto h-[80vh] w-[95%] overflow-hidden rounded-md bg-black sm:h-[85vh] sm:max-w-6xl"
       >
         {/* Top Overlay */}
         <div
           ref={topOverlayRef}
-          className="bg-primary/60 pointer-events-none absolute right-0 left-0 z-20 backdrop-blur-2xl"
+          className="bg-helper pointer-events-none absolute right-0 left-0 z-20 "
           style={{ height: "40%", top: "0" }}
         ></div>
 
         {/* Bottom Overlay */}
         <div
           ref={bottomOverlayRef}
-          className="bg-primary/60 pointer-events-none absolute right-0 left-0 z-20 backdrop-blur-2xl"
+          className="bg-helper pointer-events-none absolute right-0 left-0 z-20 "
           style={{ height: "40%", bottom: "0" }}
         ></div>
 
@@ -198,34 +201,39 @@ export default function ImageDialog({
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="bg-primary/90 hover:bg-primary/100 absolute top-6 right-6 z-30 cursor-pointer rounded-md p-2 text-white"
+            className="bg-helper/90 hover:bg-helper/100 absolute top-6 right-6 z-30 cursor-pointer rounded-md p-2 text-white"
           >
-            <X className="h-6 w-6 text-white" />
+            <X className="size-4 text-white sm:size-6" />
           </button>
         </div>
 
         {/* Bottom overlay for text and thumbnails */}
-        <div className="absolute right-0 bottom-0 left-0 z-10 flex flex-row bg-gradient-to-t from-black/90 to-transparent p-6">
+        <div className="absolute right-0 bottom-0 left-0 z-10 flex flex-col bg-gradient-to-t from-black/90 to-transparent p-6 max-sm:space-y-10 sm:flex-row">
           {/* Content (Bottom Right) */}
           <div className="flex-1 text-white">
             <div className="text-content">
               <h2 className="mb-1 text-2xl font-bold">{title}</h2>
             </div>
+            <p className="mb-1 line-clamp-1 text-lg font-semibold">
+              {description}
+            </p>
             <div className="flex gap-2">
-              {technologies.map((tech) => (
-                <Tooltip key={tech.name}>
-                  <TooltipTrigger>
-                    <Image
-                      src={tech.icon}
-                      alt={tech.name}
-                      width={24}
-                      height={24}
-                      className="cursor-pointer"
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>{tech.name}</TooltipContent>
-                </Tooltip>
-              ))}
+              <TooltipProvider>
+                {technologies.map((tech) => (
+                  <Tooltip key={tech.name}>
+                    <TooltipTrigger>
+                      <Image
+                        src={tech.icon}
+                        alt={tech.name}
+                        width={24}
+                        height={24}
+                        className="cursor-pointer"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>{tech.name}</TooltipContent>
+                  </Tooltip>
+                ))}
+              </TooltipProvider>
             </div>
           </div>
 
@@ -238,11 +246,11 @@ export default function ImageDialog({
                   return (
                     <div
                       key={img.id}
-                      className={`thumbnail-image relative h-20 w-full cursor-pointer overflow-hidden rounded-md transition-all
+                      className={`thumbnail-image relative h-16 w-full cursor-pointer overflow-hidden rounded-md transition-all sm:h-20
                         ${
                           isActive
-                            ? "ring-primary/30 outline-primary ring-2 outline-2"
-                            : "hover:outline-primary/70 outline-2 outline-transparent"
+                            ? "ring-helper/30 outline-helper ring-2 outline-2"
+                            : "hover:outline-helper/70 outline-2 outline-transparent"
                         }`}
                       onClick={() => handleImageChange(img)}
                     >

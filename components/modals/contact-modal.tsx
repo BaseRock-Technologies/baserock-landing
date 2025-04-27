@@ -51,13 +51,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-white/20 backdrop-blur-sm dark:bg-black/50">
+    <div className="bg-background/50 fixed inset-0 z-[60] flex items-center justify-center backdrop-blur-sm">
       <div className="bg-theme-card relative w-full max-w-lg rounded-lg p-6 shadow-lg">
         <button
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+          className="bg-invert-background absolute top-4 right-4 rounded-full p-1"
           onClick={onClose}
         >
-          <X size={20} className="text-primary cursor-pointer" />
+          <X size={20} className="text-theme-card cursor-pointer" />
         </button>
         <h2 className="mb-3 text-2xl font-bold">Get in Touch</h2>
         <p className="text-muted-foreground mb-4 text-base">

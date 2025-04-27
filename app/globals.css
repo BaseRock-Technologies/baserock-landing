@@ -24,6 +24,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
+  --helper: oklch(0.87 0.235262 151.024);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
@@ -73,6 +74,7 @@
   --input: oklch(0.274 0.006 286.033);
   --ring: oklch(0.442 0.017 285.786);
   --chart-1: oklch(0.488 0.243 264.376);
+  --helper: oklch(0.87 0.235262 151.024);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
@@ -96,6 +98,8 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-helper: var(--helper);
+  --color-invert-background: var(--invert-background);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -171,10 +175,18 @@
 }
 
 .service-card.animate-service-card {
-  transform: translateY(-55%);
+  transform: translateY(-63%);
   transition: transform 0.3s ease-out;
+
+  @media (min-width: 1024px) {
+    transform: translateY(-55%);
+  }
 }
 
 .service-card.animate-service-card .title {
   color: var(--background);
+}
+
+.click-here-origin {
+  transform-origin: 0 48px;
 }

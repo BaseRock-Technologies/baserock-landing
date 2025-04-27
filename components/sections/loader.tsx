@@ -6,22 +6,15 @@ import { cn } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import { useAnimations } from "../animations";
 import { spaceMono } from "@/lib/fonts";
-import { services, testimonials, socialLinks } from "@/types/data";
-import {
-  MessageCircleMoreIcon,
-  CopyrightIcon,
-  Spline,
-  SplineIcon,
-} from "lucide-react";
-import { AnimatedImageZoomOut } from "../animations/animated-image-zoom-out";
 import { ContactModal } from "../modals/contact-modal";
 import ParallaxImageTrack from "../ParallaxImageTrack";
-import { ServiceCard } from "../service-card";
-import { TestimonialsGrid } from "../testimonials-grid";
 import Hero from "./hero";
-import AboutUsImage from "@/public/assets/about-us.png";
 import { Navbar } from "../navbar";
-
+import AboutUs from "./aboutus";
+import Services from "./services";
+import Testimonials from "./testimonials";
+import Footer from "./footer";
+import ContactUs from "./contactus";
 const Loader = () => {
   const landingRef = React.useRef<HTMLDivElement>(null);
   const loaderRef = React.useRef<HTMLDivElement>(null);
@@ -214,7 +207,7 @@ const Loader = () => {
           >
             <path
               d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-              className="fill-white dark:fill-black"
+              className="fill-black dark:fill-white"
             />
           </svg>
         </div>
@@ -237,131 +230,22 @@ const Loader = () => {
           <Hero setIsContactOpen={setIsContactOpen} />
 
           {/* About Section */}
-          <section id="about" className="py-16 md:py-24">
-            <div className="custom-container">
-              <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-                <div>
-                  <h2 className="mb-6 text-3xl font-bold tracking-tighter sm:text-4xl">
-                    About Us
-                  </h2>
-                  <p className="text-muted-foreground mb-4 text-lg">
-                    At BaseRock Technologies, we blend technical expertise with
-                    clear communication to bring your vision to life. Led by
-                    Sahithya, our freelance-powered team delivers quality-first
-                    results in development, design, writing, and digital
-                    management.
-                  </p>
-                  <p className="text-muted-foreground text-lg">We value:</p>
-                  <ul className="text-muted-foreground mb-4 list-disc pl-6 text-lg">
-                    <li>Fast, clear communication</li>
-                    <li>Attention to every detail</li>
-                    <li>Client-first, goal-driven process</li>
-                    <li>Empathy, trust, and consistency</li>
-                  </ul>
-                  <p className="text-muted-foreground text-lg">
-                    We combine technical skills with people skills — so working
-                    with us feels easy, not overwhelming.
-                  </p>
-                  <p className="text-muted-foreground mt-4 text-lg font-semibold">
-                    Your idea deserves a partner who listens, thinks, and
-                    executes. That&apos;s us.
-                  </p>
-                </div>
-                <AnimatedImageZoomOut
-                  src={AboutUsImage}
-                  alt="About Us"
-                  className="rounded-lg object-cover"
-                />
-              </div>
-            </div>
-          </section>
+          <AboutUs />
 
           {/* Services Section */}
-          <section
-            id="services"
-            className="services-section relative w-full py-16 md:py-24"
-          >
-            <div className="custom-container relative w-full overflow-hidden max-sm:pr-0">
-              <h2 className="mb-12 text-center text-3xl font-bold tracking-tighter max-sm:pr-6 md:text-4xl lg:text-5xl">
-                Find the service you need
-              </h2>
-              <div className="absolute right-2 mt-auto max-w-xs translate-y-0 lg:right-1/4 lg:max-w-sm lg:translate-y-12">
-                <p className="relative">
-                  <SplineIcon className="absolute -top-8 left-0 rotate-90" />
-                  <span className="bg-primary text-background leading-relaxed">
-                    It doesn&apos;t matter whether you know where to start or
-                    not, we will always point you in the right direction.
-                  </span>
-                </p>
-              </div>
-              <div className="no-scrollbar relative flex h-full w-full flex-1 gap-4 max-sm:overflow-scroll max-sm:pr-6 sm:mt-[23%] sm:flex-col sm:gap-0">
-                {services.map((service, index) => (
-                  <ServiceCard
-                    key={index}
-                    title={service.title}
-                    description={service.description}
-                    position={index}
-                  />
-                ))}
-                <div className="from-background via-background  absolute bottom-0 hidden h-[25.9722vw] w-full items-end justify-center bg-gradient-to-t to-transparent sm:flex">
-                  <div className="text-invert-backgroud flex flex-col items-center justify-center gap-2">
-                    <Spline />
-                    <p className="relative max-w-sm text-center text-sm">
-                      We provide our partners with exceptional digital solutions
-                      that bring strategic value and meke their.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Services />
 
           {/* Projects Section */}
-          <section id="projects">
-            <ParallaxImageTrack />
-          </section>
+          <ParallaxImageTrack />
 
           {/* Testimonials Section */}
-          <section id="testimonials" className="bg-background py-16 md:py-24">
-            <div className="custom-container">
-              <div className="mb-12 flex flex-col items-center justify-center text-center">
-                <div className="bg-primary relative mb-4 flex w-fit items-center justify-center gap-1 rounded-lg rounded-bl-none px-4 py-1 ">
-                  <MessageCircleMoreIcon size={20} className="text-white" />
-                  <h1 className=" text-sm text-white">testimonials</h1>
-                </div>
-                <h2 className="text-foreground text-3xl font-bold tracking-tighter sm:text-4xl">
-                  What Clients Say
-                </h2>
-              </div>
-              <TestimonialsGrid testimonials={testimonials} />
-            </div>
-          </section>
+          <Testimonials />
+
+          {/* Contact Us Section */}
+          <ContactUs setIsContactOpen={setIsContactOpen} />
 
           {/* Footer */}
-          <footer className="bg-theme-card relative w-full text-white transition-colors duration-200">
-            <div className="custom-container mx-auto px-4 py-12">
-              <div className="mb-8 flex justify-center gap-6">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="hover:text-primary transition-colors"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="text-primary h-6 w-6 dark:text-white" />
-                  </a>
-                ))}
-              </div>
-              <div className="group relative flex items-center justify-center gap-1 text-center text-sm text-gray-400">
-                <CopyrightIcon
-                  className="group-hover:text-primary text-primary dark:text-white"
-                  size={20}
-                />{" "}
-                {new Date().getFullYear()}
-                <h1>BaseRock Technologies. All rights reserved.</h1>
-              </div>
-            </div>
-          </footer>
+          <Footer />
 
           {isContactOpen && (
             <ContactModal

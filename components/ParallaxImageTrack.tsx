@@ -8,6 +8,8 @@ import { ReactLenis } from "lenis/react";
 import ImageDialog from "./ImageDialog";
 import { projectSliderData } from "@/types/data";
 import { Project } from "@/types/types";
+import { AnimatedTextFill } from "./animations/animated-text-fill";
+import { useScreenSize } from "@/hooks/use-mobile";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxImageTrack() {
@@ -17,6 +19,7 @@ export default function ParallaxImageTrack() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { isMobile } = useScreenSize();
 
   useEffect(() => {
     if (!trackRef.current || !sectionRef.current || !isLoaded) return;
@@ -106,56 +109,85 @@ export default function ParallaxImageTrack() {
         wheelMultiplier: 0.8,
       }}
     >
-      <div
+      <section
+        id="projects"
         ref={sectionRef}
-        className="relative h-screen w-full overflow-hidden pt-28"
+        className="relative h-full w-full overflow-hidden pt-28 lg:min-h-screen"
       >
         <div className="custom-container">
-          <h2 className="mb-4 text-center text-3xl font-bold tracking-tighter sm:text-4xl">
+          <AnimatedTextFill align="center">
             Real Projects. Real Impact.
-          </h2>
+          </AnimatedTextFill>
           <p className="text-muted-foreground mb-16 text-center text-lg">
             From SaaS Products to personal brands that shine — our work speaks
             for itself.
           </p>
         </div>
-        <div
-          ref={trackRef}
-          className="relative flex w-full items-center justify-center gap-8 px-4"
-          style={{ visibility: isLoaded ? "visible" : "hidden" }}
-        >
-          {projectSliderData.map((project, index) => (
-            <Image
-              key={index}
-              ref={(el) => {
-                imagesRef.current[index] = el!;
-              }}
-              onClick={() => handleCardClick(project)}
-              src={project.images[0].image}
-              alt={`Image ${index + 1}`}
-              className="h-96 w-72 cursor-pointer object-cover shadow-lg brightness-75 transition-all duration-300 hover:brightness-100 "
-              draggable={false}
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{
-                objectPosition: "0% center", // Start from left side
-              }}
-              onLoad={
-                index === projectSliderData.length - 1
-                  ? () => setIsLoaded(true)
-                  : undefined
-              }
-            />
-          ))}
-        </div>
-      </div>
+        {isMobile ? (
+          <div className="custom-container relative flex h-full w-full flex-col items-center justify-start gap-8">
+            {projectSliderData.map((project, index) => (
+              <Image
+                key={index}
+                ref={(el) => {
+                  imagesRef.current[index] = el!;
+                }}
+                onClick={() => handleCardClick(project)}
+                src={project.images[0].image}
+                alt={`Image ${index + 1}`}
+                className="h-96 w-full cursor-pointer object-cover shadow-lg brightness-75 transition-all duration-300 hover:brightness-100 "
+                draggable={false}
+                width={0}
+                height={0}
+                sizes="100vw"
+                onLoad={
+                  index === projectSliderData.length - 1
+                    ? () => setIsLoaded(true)
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+        ) : (
+          <div
+            ref={trackRef}
+            className="relative flex w-full items-center justify-center gap-8 px-4"
+            style={{ visibility: isLoaded ? "visible" : "hidden" }}
+          >
+            {projectSliderData.map((project, index) => (
+              <Image
+                key={index}
+                ref={(el) => {
+                  imagesRef.current[index] = el!;
+                }}
+                onClick={() => handleCardClick(project)}
+                src={project.images[0].image}
+                alt={`Image ${index + 1}`}
+                className="h-[500px] w-[300px] cursor-pointer object-cover shadow-lg brightness-95 transition-all duration-300 hover:brightness-100 lg:h-96 lg:w-72 "
+                draggable={false}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
+                  objectPosition: "0% center", // Start from left side
+                }}
+                onLoad={
+                  index === projectSliderData.length - 1
+                    ? () => setIsLoaded(true)
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+        )}
+      </section>
       {/* Dialog */}
       <ImageDialog
         open={dialogOpen}
         onOpenChange={setDialogOpen}
         title={selectedProject?.title}
+        description={selectedProject?.description}
         images={selectedProject?.images}
+        technologies={selectedProject?.technologies}
       />
     </ReactLenis>
   );

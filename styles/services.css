@@ -1,16 +1,3 @@
-/* .service-card .icon::after {
-  content: "";
-  position: absolute;
-  inset: 4.5px;
-  border-radius: 50%;
-  background-color: var(--secondary);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(2px);
-  transition:
-    background-color 0.25s,
-    border-color 0.25s;
-} */
-
 .service-card .shine:before {
   content: "";
   width: 150%;

@@ -14,6 +14,17 @@ module.exports = withUt({
         "2xl": "1400px",
       },
     },
+    extend: {
+      keyframes: {
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        "spin-slow": "spin-slow 20s linear infinite",
+      },
+    },
   },
 })
 

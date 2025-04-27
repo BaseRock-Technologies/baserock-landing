@@ -54,8 +54,8 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
   }, [api]);
 
   return (
-    <section className="bg-background text-foreground relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden py-12 sm:py-20 ">
-      <div className="absolute inset-0 w-full">
+    <section className="bg-background text-foreground relative flex max-h-screen min-h-screen w-full flex-col items-center justify-center overflow-hidden pt-40 sm:pt-24">
+      <div className="absolute inset-0 h-full w-full">
         <div className="relative h-full w-full">
           <Image
             src={currentActiveBannerImage}
@@ -73,7 +73,7 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
           From Code to Communication — We Build, Manage & Deliver
         </AnimatedText>
         <AnimatedText
-          className="text-muted-foreground mx-auto mb-8 max-w-3xl text-sm sm:text-xl md:text-sm"
+          className="dark:text-muted-foreground text-background mx-auto mb-8 max-w-3xl text-sm sm:text-xl md:text-base"
           delay={0.3}
         >
           Custom tech solutions and content-driven services designed for impact.
@@ -100,7 +100,7 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
       </div>
 
       {/* Image Containers */}
-      <div className="absolute  bottom-2 z-20 mr-0 flex w-full items-center justify-end gap-2 sm:bottom-4 sm:mr-4">
+      <div className="relative bottom-2 z-20 mr-0 flex w-full items-center justify-end gap-2 max-sm:mt-6 sm:absolute sm:bottom-4 sm:mr-4">
         <Carousel
           setApi={setApi}
           opts={{
@@ -118,7 +118,7 @@ const Hero = ({ setIsContactOpen }: HeroProps) => {
                 className={`${current === index ? "h-28" : "h-24"} w-full basis-1/3`}
               >
                 <Link href={image.link} className="relative h-full w-full">
-                  <Card className="relative h-full w-full rounded-none p-0">
+                  <Card className="relative h-full w-full rounded-none border-0 p-0">
                     <CardContent className="relative flex h-full w-full items-center justify-center rounded-none p-0">
                       <Image
                         src={image.src}

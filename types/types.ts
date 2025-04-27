@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image"
 
 export interface Project {
   title: string
+  description: string
   images: {
     id: number,
     image: StaticImageData,

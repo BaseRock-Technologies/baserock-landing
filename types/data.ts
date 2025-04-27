@@ -69,6 +69,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project One",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -84,6 +85,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Two",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -99,6 +101,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Three",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",  
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -114,6 +117,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Four",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -129,6 +133,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Five",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -144,6 +149,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Six",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
@@ -159,6 +165,7 @@ export const projectSliderData: Project[] = [
       { id: 4, image: Placeholder },
     ],
     title: "Project Seven",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     technologies: [
       { name: "Next.js", icon: NextJs },
       { name: "Tailwind", icon: Tailwindcss },
