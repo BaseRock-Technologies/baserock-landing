@@ -25,7 +25,7 @@ const ContactUs = ({ setIsContactOpen }: ContactUsProps) => {
         <div className="bg-helper relative h-full w-full rounded-full p-2">
           <div className="relative h-10 w-10 md:h-14 md:w-14 lg:h-16 lg:w-16">
             <Image src={ClickHere} alt="Click Here" />
-            <Pointer className="text-background absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 lg:size-5" />
+            <Pointer className="text-background text-invert-background absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 lg:size-5" />
           </div>
         </div>
       </div>

@@ -10,11 +10,11 @@ import { ContactModal } from "../modals/contact-modal";
 import ParallaxImageTrack from "../ParallaxImageTrack";
 import Hero from "./hero";
 import { Navbar } from "../navbar";
-import AboutUs from "./aboutus";
 import Services from "./services";
 import Testimonials from "./testimonials";
 import Footer from "./footer";
 import ContactUs from "./contactus";
+import Team from "./team";
 const Loader = () => {
   const landingRef = React.useRef<HTMLDivElement>(null);
   const loaderRef = React.useRef<HTMLDivElement>(null);
@@ -57,13 +57,17 @@ const Loader = () => {
 
           revealers.forEach((el, i) => {
             if (el) {
-              gsap.to(el, {
+              const tl = gsap.timeline();
+              tl.to(el, {
                 scale: 45,
                 duration: 1.5,
                 ease: "power4.inOut",
                 delay: delays[i],
+              }).to(el, {
+                opacity: 0,
+                duration: 0.05,
                 onComplete: () => {
-                  if (i === delays.length - 1) {
+                  if (i === delays.length - 2) {
                     loaderRef.current?.remove();
                     setIsLoaderComplete(true);
                     // Show content after all revealers are done
@@ -201,17 +205,32 @@ const Loader = () => {
             width="151"
             height="148"
             viewBox="0 0 151 148"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{ transform: "scale(0)" }}
           >
-            <path
-              d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
+            <defs>
+              <mask id="starMask">
+                <rect width="151" height="148" fill="white" />
+                <path
+                  d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
+                  fill="none"
+                  className="fill-black"
+                />
+              </mask>
+            </defs>
+
+            <rect
+              width="151"
+              height="148"
+              fill="none"
               className="fill-black dark:fill-white"
+              mask="url(#starMask)"
             />
           </svg>
         </div>
       </div>
+
+      <Hero />
 
       {isLoaderComplete && (
         <div
@@ -227,10 +246,9 @@ const Loader = () => {
           />
 
           {/* Hero Section */}
-          <Hero setIsContactOpen={setIsContactOpen} />
 
-          {/* About Section */}
-          <AboutUs />
+          {/* Team Section */}
+          <Team />
 
           {/* Services Section */}
           <Services />
