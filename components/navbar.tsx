@@ -31,7 +31,7 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 z-50 flex w-full items-center justify-center">
+    <header className="fixed top-0 z-40 flex w-full items-center justify-center">
       <div className="custom-container flex items-center justify-center ">
         <div className="bg-background supports-[backdrop-filter]:bg-background/92 relative m-5 flex h-14 w-full items-center justify-between gap-6 rounded-xl border px-12 backdrop-blur">
           <Link className="font-bold" href="/">

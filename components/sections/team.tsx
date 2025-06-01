@@ -5,6 +5,11 @@ import { useGSAP } from "@gsap/react";
 import { useScreenSize } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
+import ManWithSpecs from "@/public/assets/a-team/man-with-specs.png";
+import LaughingAdult from "@/public/assets/a-team/laughing-adult.png";
+import LadyWithScripts from "@/public/assets/a-team/lady-with-scripts.png";
+import Image from "next/image";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Team = () => {
@@ -26,7 +31,7 @@ const Team = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=250%",
+      end: "+=350%",
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
@@ -37,7 +42,7 @@ const Team = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=250%",
+        end: "+=350%",
         scrub: 1,
         toggleActions: "play none none reverse",
       },
@@ -64,7 +69,7 @@ const Team = () => {
         card,
         {
           y: "-200%",
-          duration: 1,
+          duration: 8,
           ease: "power2.inOut",
         },
         getDelay(),
@@ -118,7 +123,16 @@ const Team = () => {
               cardsRef.current[0] = el;
             }}
             className="bg-primary relative z-30 flex h-96 w-full max-w-xs origin-top items-center justify-center rounded-md lg:w-full"
-          ></div>
+          >
+            <Image
+              src={ManWithSpecs}
+              alt="Man with specs"
+              className="h-full w-full object-contain"
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </div>
           <div
             ref={(el) => {
               cardsRef.current[1] = el;
@@ -127,13 +141,31 @@ const Team = () => {
               "bg-primary relative z-20 flex h-96 w-full max-w-xs origin-top items-center justify-center rounded-md lg:w-full",
               "dangle-card",
             )}
-          ></div>
+          >
+            <Image
+              src={LadyWithScripts}
+              alt="Lady with scripts"
+              className="h-full w-full object-contain"
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </div>
           <div
             ref={(el) => {
               cardsRef.current[2] = el;
             }}
             className="bg-primary relative z-10 flex h-96 w-full max-w-xs origin-top items-center justify-center rounded-md lg:w-full"
-          ></div>
+          >
+            <Image
+              src={LaughingAdult}
+              alt="Laughing adult"
+              className="h-full w-full object-contain"
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </div>
         </div>
       </div>
     </section>

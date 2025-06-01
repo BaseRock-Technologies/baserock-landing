@@ -11,7 +11,8 @@ export interface Project {
     name: string,
     icon: StaticImageData,
   }[],
-  link: string
+  link: string,
+  logo?: StaticImageData | null,
 }
 
 export interface Testimonial {

@@ -18,9 +18,8 @@ import Team from "./team";
 const Loader = () => {
   const landingRef = React.useRef<HTMLDivElement>(null);
   const loaderRef = React.useRef<HTMLDivElement>(null);
-  const revealerLayerOneRef = React.useRef<SVGSVGElement>(null);
-  const revealerLayerTwoRef = React.useRef<SVGSVGElement>(null);
-  const revealerLayerThreeRef = React.useRef<SVGSVGElement>(null);
+  const counterElement = React.useRef<HTMLDivElement>(null);
+  const counter = React.useRef<HTMLParagraphElement>(null);
 
   useAnimations();
   const [isContactOpen, setIsContactOpen] = React.useState<boolean>(false);
@@ -29,53 +28,23 @@ const Loader = () => {
     React.useState<boolean>(false);
 
   useGSAP(() => {
-    const revealers = [
-      revealerLayerOneRef.current,
-      revealerLayerTwoRef.current,
-      revealerLayerThreeRef.current,
-    ];
-    // gsap.set(revealers, { scale: 0 });
-
     function startLoader() {
-      const counterElement =
-        document.querySelector<HTMLParagraphElement>(".count p");
-      if (!counterElement) return;
+      if (!counterElement.current) return;
 
       let currentValue = 0;
 
       function updateCounter() {
-        if (currentValue < 100 && counterElement) {
+        if (currentValue < 100 && counterElement.current && counter.current) {
           const increment = Math.floor(Math.random() * 10) + 1;
           currentValue = Math.min(currentValue + increment, 100);
-          counterElement.textContent = currentValue.toString();
+          counter.current.textContent = currentValue.toString();
 
           const delay = Math.floor(Math.random() * 200) + 25;
           setTimeout(updateCounter, delay);
         } else if (currentValue === 100) {
+          counterElement.current?.remove();
           // Start revealer animations immediately when counter reaches 100
-          const delays = [0, 0.5, 1];
-
-          revealers.forEach((el, i) => {
-            if (el) {
-              const tl = gsap.timeline();
-              tl.to(el, {
-                scale: 45,
-                duration: 1.5,
-                ease: "power4.inOut",
-                delay: delays[i],
-              }).to(el, {
-                opacity: 0,
-                duration: 0.05,
-                onComplete: () => {
-                  if (i === delays.length - 2) {
-                    loaderRef.current?.remove();
-                    setIsLoaderComplete(true);
-                    // Show content after all revealers are done
-                  }
-                },
-              });
-            }
-          });
+          setIsLoaderComplete(true);
         }
       }
 
@@ -122,115 +91,30 @@ const Loader = () => {
         },
         "+=2",
       );
-  }, [
-    landingRef,
-    loaderRef,
-    revealerLayerOneRef,
-    revealerLayerTwoRef,
-    revealerLayerThreeRef,
-  ]);
+  }, [landingRef, loaderRef, counter, counterElement]);
 
   return (
     <div className="relative min-h-screen w-screen" ref={landingRef}>
       <div
-        className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white dark:bg-black"
+        className="absolute top-0 left-0 z-50 flex h-screen w-screen items-center justify-center overflow-hidden"
         ref={loaderRef}
       >
         <div
+          ref={counterElement}
           className={cn(
+            "bg-background relative z-50 flex h-full w-full items-center justify-center",
             "loader-content",
             "flex gap-2 text-black dark:text-white",
           )}
         >
           <div className="count">
-            <p>0</p>
+            <p ref={counter}>0</p>
           </div>
-          <div className={cn("copy", "flex-[6] text-3xl leading-4 uppercase")}>
+          <div className={cn("copy", "text-3xl leading-4 uppercase")}>
             <p className="ml16">Baserock</p>
           </div>
         </div>
-
-        <div
-          className={cn(
-            "revealer",
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-          )}
-        >
-          <svg
-            ref={revealerLayerOneRef}
-            width="151"
-            height="148"
-            viewBox="0 0 151 148"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ transform: "scale(0)" }}
-          >
-            <path
-              d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-              className="fill-black dark:fill-white"
-            />
-          </svg>
-        </div>
-
-        <div
-          className={cn(
-            "revealer",
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-          )}
-        >
-          <svg
-            ref={revealerLayerTwoRef}
-            width="151"
-            height="148"
-            viewBox="0 0 151 148"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ transform: "scale(0)" }}
-          >
-            <path
-              d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-              className="fill-primary"
-            />
-          </svg>
-        </div>
-
-        <div
-          className={cn(
-            "revealer",
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-          )}
-        >
-          <svg
-            ref={revealerLayerThreeRef}
-            width="151"
-            height="148"
-            viewBox="0 0 151 148"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ transform: "scale(0)" }}
-          >
-            <defs>
-              <mask id="starMask">
-                <rect width="151" height="148" fill="white" />
-                <path
-                  d="M75.9817 0L77.25 34.2209C78.0259 55.1571 94.8249 71.9475 115.762 72.7127L150.982 74L115.762 75.2873C94.8249 76.0525 78.0259 92.8429 77.25 113.779L75.9817 148L74.7134 113.779C73.9375 92.8429 57.1385 76.0525 36.2019 75.2873L0.981689 74L36.2018 72.7127C57.1384 71.9475 73.9375 55.1571 74.7134 34.2209L75.9817 0Z"
-                  fill="none"
-                  className="fill-black"
-                />
-              </mask>
-            </defs>
-
-            <rect
-              width="151"
-              height="148"
-              fill="none"
-              className="fill-black dark:fill-white"
-              mask="url(#starMask)"
-            />
-          </svg>
-        </div>
       </div>
-
-      <Hero />
 
       {isLoaderComplete && (
         <div
@@ -246,6 +130,7 @@ const Loader = () => {
           />
 
           {/* Hero Section */}
+          <Hero />
 
           {/* Team Section */}
           <Team />

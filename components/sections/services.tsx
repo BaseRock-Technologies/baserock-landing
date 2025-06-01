@@ -23,7 +23,7 @@ const Services = () => {
             </span>
           </p>
         </div>
-        <div className="relative flex h-full w-full flex-1 flex-col gap-4 sm:mt-[23%] sm:flex-col sm:gap-0">
+        <div className="relative flex h-full w-full flex-1 flex-col gap-4 sm:mt-[25%] sm:flex-col sm:gap-0 md:mt-[23%]">
           {services.map((service, index) => (
             <ServiceCard
               key={index}

@@ -201,7 +201,7 @@ export default function ImageDialog({
           {/* Close button */}
           <button
             onClick={handleClose}
-            className="bg-helper/90 hover:bg-helper/100 absolute top-6 right-6 z-30 cursor-pointer rounded-md p-2 text-white"
+            className="bg-primary/90 hover:bg-primary/100 absolute top-6 right-6 z-30 cursor-pointer rounded-md p-2 text-white"
           >
             <X className="size-4 text-white sm:size-6" />
           </button>
