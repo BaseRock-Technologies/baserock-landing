@@ -31,8 +31,8 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 z-40 flex w-full items-center justify-center">
-      <div className="custom-container flex items-center justify-center ">
+    <header className="fixed top-0 z-40 flex h-fit w-full items-center justify-center">
+      <div className="breaker flex items-center justify-center ">
         <div className="bg-background supports-[backdrop-filter]:bg-background/92 relative m-5 flex h-14 w-full items-center justify-between gap-6 rounded-xl border px-12 backdrop-blur">
           <Link className="font-bold" href="/">
             Baserock
@@ -102,7 +102,7 @@ export function Navbar({ isOpen, setIsOpen, setContactOpen }: NavbarProps) {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="bg-background/99 fixed top-0 left-0  min-h-screen w-full items-start justify-center shadow-md backdrop-blur-3xl lg:hidden">
-          <div className="custom-container relative flex min-h-screen flex-col space-y-10 py-10">
+          <div className="breaker relative flex min-h-screen flex-col space-y-10 py-10">
             <div className="relative flex w-full items-center justify-between">
               <Link href="/" className="font-bold">
                 Baserock

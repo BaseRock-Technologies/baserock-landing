@@ -1,26 +1,67 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { ReactLenis } from "lenis/react";
-import ImageDialog from "./ImageDialog";
 import { projectSliderData } from "@/types/data";
 import { Project } from "@/types/types";
 import { AnimatedTextFill } from "./animations/animated-text-fill";
 import { useScreenSize } from "@/hooks/use-mobile";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
+import { FastAverageColor } from "fast-average-color";
+import { useRouter } from "next/navigation";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxImageTrack() {
   const trackRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { isMobile } = useScreenSize();
+  const [bgColors, setBgColors] = useState<string[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fac = new FastAverageColor();
+
+    const getImageColors = async () => {
+      const colors = await Promise.all(
+        imagesRef.current.map(async (img) => {
+          if (!img || !img.complete) return "rgba(var(--primary-rgb), 0.35)";
+          try {
+            const color = await fac.getColor(img);
+            return `rgba(${color.value[0]}, ${color.value[1]}, ${color.value[2]}, 0.8)`;
+          } catch (e) {
+            console.error("Error getting color:", e);
+            return "rgba(var(--primary-rgb), 0.35)";
+          }
+        }),
+      );
+      setBgColors(colors);
+    };
+
+    // Wait for all images to load before getting colors
+    const loadImages = async () => {
+      const imagePromises = imagesRef.current.map((img) => {
+        if (!img) return Promise.resolve();
+        return new Promise((resolve) => {
+          if (img.complete) {
+            resolve(null);
+          } else {
+            img.onload = () => resolve(null);
+            img.onerror = () => resolve(null);
+          }
+        });
+      });
+
+      await Promise.all(imagePromises);
+      await getImageColors();
+    };
+
+    loadImages();
+  }, []);
 
   useGSAP(() => {
     if (!trackRef.current || !sectionRef.current) return;
@@ -71,7 +112,7 @@ export default function ParallaxImageTrack() {
     tl.to(
       track,
       {
-        x: -1 * totalWidth,
+        x: -1.15 * totalWidth,
         ease: "power1.inOut",
       },
       0,
@@ -96,8 +137,7 @@ export default function ParallaxImageTrack() {
 
   // Handle card click
   const handleCardClick = (project: Project) => {
-    setSelectedProject(project);
-    setDialogOpen(true);
+    router.push(`/projects/${project.id}`);
   };
 
   return (
@@ -114,7 +154,7 @@ export default function ParallaxImageTrack() {
         ref={sectionRef}
         className="from-background/50 to-primary/30 relative h-full w-full overflow-hidden bg-gradient-to-t pt-28 lg:min-h-screen"
       >
-        <div className="custom-container">
+        <div className="breaker">
           <AnimatedTextFill align="center">
             Real Projects. Real Impact.
           </AnimatedTextFill>
@@ -124,7 +164,7 @@ export default function ParallaxImageTrack() {
           </p>
         </div>
         {isMobile ? (
-          <div className="custom-container relative flex h-full w-full flex-col items-center justify-start gap-4">
+          <div className="breaker relative flex h-full w-full flex-col items-center justify-start gap-4">
             {projectSliderData.map((project, index) => (
               <div
                 className="h-96 w-40 cursor-pointer overflow-hidden rounded-md object-cover shadow-lg brightness-75 transition-all duration-300 hover:brightness-100"
@@ -133,20 +173,12 @@ export default function ParallaxImageTrack() {
               >
                 <div
                   className={cn(
-                    "bg-primary/20 absolute inset-0 flex items-center justify-center",
+                    "absolute inset-0 flex items-center justify-center",
                   )}
-                >
-                  {project.logo && (
-                    <Image
-                      src={project.logo}
-                      alt={`Logo ${index + 1}`}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      className="z-50 h-24 w-24"
-                    />
-                  )}
-                </div>
+                  style={{
+                    backgroundColor: bgColors[index],
+                  }}
+                ></div>
                 <Image
                   ref={(el) => {
                     imagesRef.current[index] = el!;
@@ -181,20 +213,12 @@ export default function ParallaxImageTrack() {
               >
                 <div
                   className={cn(
-                    "bg-primary/20 absolute inset-0 flex items-center justify-center",
+                    "absolute inset-0 flex items-center justify-center",
                   )}
-                >
-                  {project.logo && (
-                    <Image
-                      src={project.logo}
-                      alt={`Logo ${index + 1}`}
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      className="z-50 h-24 w-24"
-                    />
-                  )}
-                </div>
+                  style={{
+                    backgroundColor: bgColors[index],
+                  }}
+                ></div>
                 <Image
                   ref={(el) => {
                     imagesRef.current[index] = el!;
@@ -217,15 +241,6 @@ export default function ParallaxImageTrack() {
           </div>
         )}
       </section>
-      {/* Dialog */}
-      <ImageDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        title={selectedProject?.title}
-        description={selectedProject?.description}
-        images={selectedProject?.images}
-        technologies={selectedProject?.technologies}
-      />
     </ReactLenis>
   );
 }

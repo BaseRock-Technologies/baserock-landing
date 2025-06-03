@@ -39,7 +39,7 @@ const Hero = () => {
       id="heroSection"
       className="bg-background text-foreground from-background/50 to-primary relative flex max-h-screen min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-gradient-to-t pt-14"
     >
-      <div className="custom-container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center">
+      <div className="breaker relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center">
         <h1
           ref={headingRef}
           className="font-anton relative mb-6 w-full text-6xl font-bold text-white uppercase md:text-8xl lg:w-4/5 lg:text-9xl"

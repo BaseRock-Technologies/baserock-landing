@@ -105,7 +105,7 @@ const Team = () => {
     <section ref={sectionRef} className="relative flex min-h-screen w-full">
       <div
         className={cn(
-          "custom-container relative z-10 mx-auto flex h-screen w-full items-center justify-center text-center",
+          "breaker relative z-10 mx-auto flex h-screen w-full items-center justify-center text-center",
         )}
       >
         <div className="absolute top-1/2 left-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2">

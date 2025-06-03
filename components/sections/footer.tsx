@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-theme-card relative w-full text-white transition-colors duration-200">
-      <div className="custom-container mx-auto px-4 py-12">
+      <div className="breaker mx-auto px-4 py-12">
         <div className="mb-8 flex justify-center gap-6">
           {socialLinks.map((social, index) => (
             <a

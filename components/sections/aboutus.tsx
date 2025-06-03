@@ -6,7 +6,7 @@ import AboutUsImage from "@/public/assets/about-us.png";
 const AboutUs = () => {
   return (
     <section id="about" className="py-16 md:py-24">
-      <div className="custom-container">
+      <div className="breaker">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <AnimatedTextFill align="left">About Us</AnimatedTextFill>

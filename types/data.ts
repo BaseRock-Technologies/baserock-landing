@@ -61,7 +61,6 @@ import ShrutidhavalaMainImage from "@/public/assets/projects/shruthidhavala/main
 import ShrutidhavalaSupportOneImage from "@/public/assets/projects/shruthidhavala/support-one.png";
 import ShrutidhavalaSupportTwoImage from "@/public/assets/projects/shruthidhavala/support-two.png";
 import ShrutidhavalaSupportThreeImage from "@/public/assets/projects/shruthidhavala/support-three.png";
-import ShrutidhavaLogoImage from "@/public/assets/projects/shruthidhavala/logo.png";
 
 // adszoo
 import AdszMainImage from "@/public/assets/projects/adszoo/main.png";
@@ -110,6 +109,7 @@ import SahithyaPortfolioSupportThreeImage from "@/public/assets/projects/sahithy
 // Sample data for the images
 export const projectSliderData: Project[] = [
   {
+    id: "shrutidhavala",
     images: [
       { id: 1, image: ShrutidhavalaMainImage },
       { id: 2, image: ShrutidhavalaSupportOneImage },
@@ -122,9 +122,9 @@ export const projectSliderData: Project[] = [
       { name: "WordPress", icon: Wordpress },
     ],
     link: "https://shrutidhavala.com",
-    logo: ShrutidhavaLogoImage,
   },
   {
+    id: "adszoo",
     images: [
       { id: 1, image: AdszMainImage },
       { id: 2, image: AdszSupportOneImage },
@@ -137,6 +137,7 @@ export const projectSliderData: Project[] = [
     link: "https://adszoo.com",
   },
   {
+    id: "filmytics",
     images: [
       { id: 1, image: FilmyticsMainImage },
       { id: 2, image: FilmyticsSupportOneImage },
@@ -151,6 +152,7 @@ export const projectSliderData: Project[] = [
     link: "https://filmytics.com",
   },
   {
+    id: "oneustravels",
     images: [
       { id: 1, image: OneustraveMainImage },
       { id: 2, image: OneustraveSupportOneImage },
@@ -163,6 +165,7 @@ export const projectSliderData: Project[] = [
     link: "https://www.oneustravels.com",
   },
   {
+    id: "ghostly",
     images: [
       { id: 1, image: GhostlyMainImage },
       { id: 2, image: GhostlySupportOneImage },
@@ -175,6 +178,7 @@ export const projectSliderData: Project[] = [
     link: "https://ghostly.baserock.in",
   },
   {
+    id: "mezora",
     images: [
       { id: 1, image: MezoraMainImage },
       { id: 2, image: MezoraSupportOneImage },
@@ -188,6 +192,7 @@ export const projectSliderData: Project[] = [
     link: "https://mezora.in",
   },
   {
+    id: "adtoleadz",
     images: [
       { id: 1, image: AdtoleadzMainImage },
       { id: 2, image: AdtoleadzSupportOneImage },
@@ -200,6 +205,7 @@ export const projectSliderData: Project[] = [
     link: "https://adtoleadz.com",
   },
   {
+    id: "sahithya-portfolio",
     images: [
       { id: 1, image: SahithyaPortfolioMainImage },
       { id: 2, image: SahithyaPortfolioSupportOneImage },

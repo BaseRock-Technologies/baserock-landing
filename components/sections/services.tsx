@@ -10,7 +10,7 @@ const Services = () => {
       id="services"
       className="services-section relative flex w-full justify-center py-16 md:py-24"
     >
-      <div className="custom-container relative w-full space-y-6 overflow-hidden">
+      <div className="breaker relative w-full space-y-6 overflow-hidden">
         <AnimatedTextFill className="mb-12 text-center max-sm:pr-6">
           Find the service you need
         </AnimatedTextFill>

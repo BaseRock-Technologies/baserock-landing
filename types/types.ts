@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image"
 
 export interface Project {
+  id: string
   title: string
   description: string
   images: {
@@ -12,7 +13,6 @@ export interface Project {
     icon: StaticImageData,
   }[],
   link: string,
-  logo?: StaticImageData | null,
 }
 
 export interface Testimonial {
